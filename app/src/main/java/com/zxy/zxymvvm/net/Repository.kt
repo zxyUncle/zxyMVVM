@@ -1,10 +1,8 @@
-package com.example.mvvm.net
+package com.zxy.zxymvvm.net
 
-import android.content.Context
 import com.zxy.zxymvvm.bean.ArticleData
-import com.example.mvvm.bean.BaseBean
 import com.example.mvvm.common.ApiException
-import com.zxy.zxymvvm.net.NetConfigUtils
+import com.example.mvvm.net.NetworkService
 
 /**
  * 接口资源

@@ -6,7 +6,7 @@ import com.example.mvvm.base.BaseViewModel
 import com.zxy.zxymvvm.bean.ArticleData
 import com.example.mvvm.bean.LoadState
 import com.example.mvvm.common.launch
-import com.example.mvvm.net.Repository
+import com.zxy.zxymvvm.net.Repository
 
 /**
  * Created by zsf on 2020/11/19 17:42

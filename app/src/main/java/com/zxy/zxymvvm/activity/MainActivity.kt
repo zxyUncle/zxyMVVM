@@ -1,7 +1,9 @@
 package com.zxy.zxymvvm.activity
 
+import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -10,6 +12,7 @@ import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.bean.ArticleData
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
+import com.zxy.zxymvvm.utils.requestPermission
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -26,6 +29,18 @@ class MainActivity : AppCompatActivity() {     // 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        requestPermission(
+            mutableListOf(
+                Manifest.permission.READ_CONTACTS,
+                Manifest.permission.CAMERA,
+                Manifest.permission.CALL_PHONE
+            ), {
+
+            }, {
+                Toast.makeText(this, "不同意的: $it", Toast.LENGTH_LONG).show()
+            })
+
         // 2
         binding = DataBindingUtil.setContentView(
             this,
