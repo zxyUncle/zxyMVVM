@@ -1,20 +1,22 @@
 package com.zxy.zxyhttp.net
 
 import com.zxy.zxyhttp.BuildConfig
-import com.zxy.zxyhttp.common.LogUtil
 import com.zxy.zxyhttp.common.gson.MGson
-import okhttp3.FormBody
+import com.zxy.zxyhttp.net.NetConfigUtils.YN_TAG
+import com.zxy.zxyhttp.utils.LogcatUitls
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
+import okio.Buffer
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.nio.charset.Charset
 import java.util.concurrent.TimeUnit
 
 /**
  * Created by zsf on 2021/1/4 14:39
  * ******************************************
- * * 
+ * *
  * ******************************************
  */
 object ApiFactory {
@@ -46,33 +48,26 @@ object ApiFactory {
      */
     private class LoggingInterceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {
-            val builder = StringBuilder()
-            val startTime = System.nanoTime()
-            val response: Response = with(chain.request()) {
-                builder.append(method + "\n")
-                builder.append("Sending request\n$url")
-                if (method == "POST") {
-                    builder.append("?")
-                    when (val body = body) {
-                        is FormBody -> {
-                            for (j in 0 until body.size) {
-                                builder.append(body.name(j) + "=" + body.value(j))
-                                if (j != body.size - 1) {
-                                    builder.append("&")
-                                }
-                            }
-                        }
-//                        is MultipartBody -> {}
+            val request = chain.request()
+            val response = chain.proceed(request)
+            val headerDate = response.header("Date", "")//请求头
+            if (request.url.toString().isNotEmpty())
+                if ("POST" == request.method) {
+                    var requestBody = request.body
+                    var body = ""
+                    val buffer = Buffer()
+                    requestBody?.writeTo(buffer)
+                    var charset: Charset? = Charset.forName("UTF-8")
+                    val contentType = requestBody?.contentType()
+                    contentType?.let {
+                        charset = contentType.charset(Charset.forName("UTF-8"))
                     }
+                    body = buffer.readString(charset!!)
+                    LogcatUitls.printPost(YN_TAG,"${response.code}    ${request.url}",body)
+                } else {
+                    LogcatUitls.printGet(YN_TAG, "$headerDate","${response.code}    ${request.url}")
                 }
-                builder.append("\n").append(headers)
-                LogUtil.i(NetConfigUtils.YN_TAG,builder.toString())
-                chain.proceed(this)
-            }
-            builder.clear()
-            builder.append("Received response in " + (System.nanoTime() - startTime) / 1e6 + "ms\n")
-            builder.append("code" + response.code + "\n")
-            LogUtil.i(NetConfigUtils.YN_TAG,builder.toString())
+
             return response
         }
     }

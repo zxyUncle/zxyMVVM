@@ -18,27 +18,28 @@ public class LogcatUitls {
 
     public static void printLine(String tag, boolean isTop) {
         if (isTop) {
-            Log.i(tag, "╔═══════════════════════════════════════════════════════════════════════════════════════");
+            Log.e(tag, "╔═══════════════════════════════════════════════════════════════════════════════════════");
         } else {
-            Log.i(tag, "╚═══════════════════════════════════════════════════════════════════════════════════════");
+            Log.e(tag, "╚═══════════════════════════════════════════════════════════════════════════════════════");
         }
     }
 
     public static void printStirng(String tag, String msg) {
         printLine(tag, true);
-        Log.i(tag, "║ " + msg);
+        Log.e(tag, "║ " + msg);
         printLine(tag, false);
     }
 
-    public static void printGet(String tag, String msg) {
+    public static void printGet(String tag, String header , String msg) {
         printLine(tag, true);
-        Log.i(tag, "║ " + msg);
+        Log.e(tag, "║ " + "header:"+header);
+        Log.e(tag, "║ " + msg);
         printLine(tag, false);
     }
 
     public static void printPost(String tag, String header, String msg) {
         printLine(tag, true);
-        Log.i(tag, "║ " + header);
+        Log.e(tag, "║ " + header);
         String message;
         try {
             if (msg.startsWith("{")) {
@@ -57,7 +58,7 @@ public class LogcatUitls {
         message = LINE_SEPARATOR + message;
         String[] lines = message.split(LINE_SEPARATOR);
         for (String line : lines) {
-            Log.i(tag, "║ " + line);
+            Log.e(tag, "║ " + line);
         }
         printLine(tag, false);
     }
@@ -82,7 +83,7 @@ public class LogcatUitls {
         message = LINE_SEPARATOR + message;
         String[] lines = message.split(LINE_SEPARATOR);
         for (String line : lines) {
-            Log.i(tag, "║ " + line);
+            Log.e(tag, "║ " + line);
         }
         printLine(tag, false);
     }

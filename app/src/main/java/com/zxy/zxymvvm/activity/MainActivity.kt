@@ -3,9 +3,9 @@ package com.zxy.zxymvvm.activity
 import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseAppcompatActivity
-import com.zxy.zxyhttp.base.BaseViewModel
 import com.zxy.zxyhttp.bean.ArticleData
 import com.zxy.zxyhttp.bean.BaseBean
+import com.zxy.zxyhttp.utils.click
 import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
@@ -30,7 +30,7 @@ class MainActivity : BaseAppcompatActivity<ActivityMainBinding>() {
         vmMainActivity.data.observe(this, {
             showData(it)
         })
-        btnRequest.setOnClickListener {
+        btnRequest.click {
             vmMainActivity.getData()
         }
         supportFragmentManager.beginTransaction().replace(R.id.mFrameLayout,FirstFragment()).commit()

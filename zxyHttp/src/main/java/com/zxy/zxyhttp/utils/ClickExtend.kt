@@ -30,7 +30,7 @@ fun Array<View>.clicks(click: (View) -> Unit) {
  * @param block: (T) -> Unit 函数
  * @return Unit
  */
-fun <T : View> T.click(time: Long = 500, block: (T) -> Unit) {
+fun <T : View> T.click(time: Long = 300, block: (T) -> Unit) {
     var viewOld: View? = null
     triggerDelay = time
     setOnClickListener {
