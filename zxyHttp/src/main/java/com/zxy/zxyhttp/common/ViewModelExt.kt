@@ -2,21 +2,23 @@ package com.zxy.zxyhttp.common
 
 import androidx.lifecycle.viewModelScope
 import com.zxy.zxyhttp.base.BaseViewModel
+import com.zxy.zxyhttp.bean.BaseBean
+import com.zxy.zxyhttp.net.ApiService
+import com.zxy.zxyhttp.net.NetConfigUtils
+import com.zxy.zxyhttp.net.NetworkService
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
 /**
- * ViewModel扩展方法：启动协程
- * @param block 协程逻辑
- * @param onError 错误回调方法
- * @param onComplete 完成回调方法
+ * Created by zsf on 2021/1/4 14:34
+ * ******************************************
+ * * isShowLoad是否显示加载动画
+ * ******************************************
  */
-fun BaseViewModel.reqeust(
-    onComplete: suspend (isSuccess: Boolean) -> Unit,
-) {
-    var baseViewModel:BaseViewModel = this
-    this.loadStatus(0)
-    var isSuccess = true
+fun BaseViewModel.reqeustApi(onComplete: suspend (ApiService) -> Unit,isShowLoad:Boolean = false) {
+    var baseViewModel: BaseViewModel = this
+    baseViewModel.isShowLoad = isShowLoad
+    baseViewModel.loadStatus(loading)
     viewModelScope.launch(
         CoroutineExceptionHandler { _, throwable ->
             run {
@@ -25,14 +27,28 @@ fun BaseViewModel.reqeust(
             }
         }
     ) {
-        isSuccess = try {
-            baseViewModel.loadStatus()
-            true
+        try {
+            baseViewModel.loadStatus(loadSucc)
         } catch (e: Exception) {
-            baseViewModel.loadStatus(1)
-            false
+            baseViewModel.loadStatus(loadFail)
         } finally {
-            onComplete(isSuccess)
+            onComplete(NetworkService.api)
         }
+    }
+}
+
+/**
+ * 根据实际情况处理
+ */
+fun BaseBean<*>.response(): BaseBean<*> {
+    when (errorCode) {
+        NetConfigUtils.YN_SUCC ->//成功
+            return this
+        NetConfigUtils.YN_Fail ->//token失效
+            // 抛出接口异常
+            throw ApiException(errorCode, errorCode.toString())
+        else ->
+            // 抛出接口异常
+            throw ApiException(errorCode, errorCode.toString())
     }
 }

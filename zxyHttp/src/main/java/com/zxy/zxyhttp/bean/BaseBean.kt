@@ -1,5 +1,6 @@
 package com.zxy.zxyhttp.bean
 
+
 /**
  * Created by zsf on 2021/1/4 11:20
  * ******************************************
@@ -9,5 +10,5 @@ package com.zxy.zxyhttp.bean
 data class BaseBean<T>(
     var errorCode: Int = -1,
     var errorMsg: String = "",
-    var data: T
+    var data: T,
 )

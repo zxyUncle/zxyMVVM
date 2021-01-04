@@ -5,25 +5,34 @@ import androidx.lifecycle.ViewModel
 import com.zxy.zxyhttp.bean.LoadState
 
 /**
- * ViewModel 基类
- * @author ssq
+ * Created by zsf on 2021/1/4 14:38
+ * ******************************************
+ * *
+ * ******************************************
  */
 abstract class BaseViewModel : ViewModel() {
     // 加载状态
     val loadState = MutableLiveData<LoadState>()
 
-    var isSHowLoad = false //是否显示加载动画
+    var isShowLoad = false //是否显示加载动画
 
-    fun loadStatus(type: Int = 2) {
-        if (isSHowLoad) {
+    var loading: Long = 0x000001
+    var loadFail: Long = 0x000002
+    var loadSucc: Long = 0x000003
+
+    /**
+     * 0:加载中，1加载失败，2加载完成
+     */
+    fun loadStatus(type: Long = loadSucc) {
+        if (isShowLoad) {
             when (type) {
-                0 -> {
+                loading -> {
                     this.loadState.value = LoadState.Loading()
                 }
-                1 -> {
+                loadFail -> {
                     this.loadState.value = LoadState.Fail()
                 }
-                2 -> {
+                loadSucc -> {
                     this.loadState.value = LoadState.Success()
                 }
                 else -> {

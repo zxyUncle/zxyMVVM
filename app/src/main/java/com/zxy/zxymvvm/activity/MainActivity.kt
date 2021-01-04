@@ -1,15 +1,15 @@
 package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.zxy.zxyhttp.base.BaseAppcompatActivity
+import com.zxy.zxyhttp.base.BaseViewModel
 import com.zxy.zxyhttp.bean.ArticleData
 import com.zxy.zxyhttp.bean.BaseBean
 import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
+import com.zxy.zxymvvm.fragment.FirstFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -18,22 +18,22 @@ import kotlinx.android.synthetic.main.activity_main.*
  * *
  * ******************************************
  */
-class MainActivity : AppCompatActivity() {     // 1
-    lateinit var binding: ActivityMainBinding
+class MainActivity : BaseAppcompatActivity<ActivityMainBinding>() {
     private val vmMainActivity: VMMainActivity by lazy {
         ViewModelProvider(this)[VMMainActivity::class.java]
     }
 
-    @SuppressLint("NewApi")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    override fun getLayoutId() = R.layout.activity_main
+
+    override fun initView() {
+        super.initView()
         vmMainActivity.data.observe(this, {
             showData(it)
         })
         btnRequest.setOnClickListener {
-            vmMainActivity.getData(this)
+            vmMainActivity.getData()
         }
+        supportFragmentManager.beginTransaction().replace(R.id.mFrameLayout,FirstFragment()).commit()
     }
 
     /**

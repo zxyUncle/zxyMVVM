@@ -6,5 +6,5 @@ package com.zxy.zxyhttp.net
  */
 object NetworkService {
     // 接口API服务(挂起)
-    val api by lazy { ApiFactory.createService(NetConfigUtils.YN_HOSTURL, ApiService::class.java) }
+    val api:ApiService by lazy { ApiFactory.createService(NetConfigUtils.YN_HOSTURL, ApiService::class.java) }
 }

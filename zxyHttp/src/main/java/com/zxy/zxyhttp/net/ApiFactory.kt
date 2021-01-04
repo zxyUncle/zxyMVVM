@@ -12,8 +12,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 /**
- * 接口请求工厂
- * @author ssq
+ * Created by zsf on 2021/1/4 14:39
+ * ******************************************
+ * * 
+ * ******************************************
  */
 object ApiFactory {
     // 日志拦截器

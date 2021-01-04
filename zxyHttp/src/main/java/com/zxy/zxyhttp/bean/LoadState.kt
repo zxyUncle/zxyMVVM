@@ -1,9 +1,10 @@
 package com.zxy.zxyhttp.bean
 
 /**
- * 加载状态
- * @author ssq
- * sealed 关键字表示此类仅内部继承
+ * Created by zsf on 2021/1/4 14:38
+ * ******************************************
+ * * 加载动画的密封类
+ * ******************************************
  */
 sealed class LoadState(val msg: String) {
     /**

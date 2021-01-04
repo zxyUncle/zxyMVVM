@@ -10,8 +10,10 @@ import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
 /**
- * 异常工具类
- * @author ssq
+ * Created by zsf on 2021/1/4 14:37
+ * ******************************************
+ * * 
+ * ******************************************
  */
 object ExceptionUtil {
 

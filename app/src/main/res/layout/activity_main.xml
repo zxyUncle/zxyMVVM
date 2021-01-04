@@ -20,15 +20,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{articleData.name}"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:text="@{articleData.name}"
-            app:layout_constraintTop_toBottomOf="@id/btnRequest"
+            android:id="@+id/etRequest"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@{articleData.name}"
+            app:layout_constraintTop_toBottomOf="@id/btnRequest" />
+
+        <FrameLayout
+            android:id="@+id/mFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etRequest" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -11,7 +11,6 @@ import com.permissionx.guolindev.BuildConfig
  * -Info、Warn、Error等级的Log禁止作为普通的调试信息使用，这些等级的Log是系统出现问题时候的重要分析线索，如果随意使用，将给Log分析人员带来极大困扰。
  * -Log的tag命名，使用Activity名称或者类、模块的名称，不要出现自己的姓名拼音或其他简称。
  * -Log输出的频率需要控制,例如1s打印一次的Log，尽量只在eng版本使用。
- * @author ssq
  */
 object LogUtil{
     const val TAG = "PetPet"
