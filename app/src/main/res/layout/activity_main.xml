@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+<!--        导入其他类-->
+        <import type="com.zxy.zxyhttp.utils.ScreenUtil"/>
 
         <variable
             name="articleData"
-            type="com.zxy.zxyhttp.bean.ArticleData" />
+            type="com.zxy.zxyhttp.bean.ArticleData"/>
+
+        <variable
+            name="list"
+            type="java.util.ArrayList&lt;String>" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".activity.MainActivity">
+
+<!--        <include layout="@layout/name"-->
+<!--            bind:user="@{articleData}"/>-->
 
         <Button
             android:id="@+id/btnRequest"
@@ -28,14 +38,21 @@
             android:id="@+id/etRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{articleData.name}"
+            android:text="@{articleData.name ?? 123,default=请输入内容}"
             app:layout_constraintTop_toBottomOf="@id/btnRequest" />
+
+        <EditText
+            android:id="@+id/etRequest1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{etRequest.text}"
+            app:layout_constraintTop_toBottomOf="@id/etRequest" />
 
         <FrameLayout
             android:id="@+id/mFrameLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etRequest" />
+            app:layout_constraintTop_toBottomOf="@id/etRequest1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
