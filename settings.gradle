@@ -1,2 +1,3 @@
+include ':zxyHttp'
 include ':app'
 rootProject.name = "zxyMVVM"

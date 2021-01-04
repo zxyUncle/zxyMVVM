@@ -2,11 +2,11 @@ package com.zxy.zxymvvm.activity_viewmodel
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.zxy.zxymvvm.base.BaseViewModel
-import com.zxy.zxymvvm.bean.ArticleData
-import com.zxy.zxymvvm.bean.BaseBean
-import com.zxy.zxymvvm.common.reqeust
-import com.zxy.zxymvvm.net.Repository
+import com.zxy.zxyhttp.base.BaseViewModel
+import com.zxy.zxyhttp.bean.ArticleData
+import com.zxy.zxyhttp.bean.BaseBean
+import com.zxy.zxyhttp.common.reqeust
+import com.zxy.zxyhttp.net.Repository
 
 /**
  * Created by zsf on 2020/11/19 17:42

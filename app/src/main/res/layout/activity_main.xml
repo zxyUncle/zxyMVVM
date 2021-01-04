@@ -7,7 +7,7 @@
 
         <variable
             name="articleData"
-            type="com.zxy.zxymvvm.bean.ArticleData" />
+            type="com.zxy.zxyhttp.bean.ArticleData" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
