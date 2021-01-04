@@ -1,9 +1,13 @@
-package com.example.mvvm.bean
+package com.zxy.zxymvvm.bean
 
 /**
- * Json对象基类
+ * Created by zsf on 2021/1/4 11:20
+ * ******************************************
+ * *
+ * ******************************************
  */
-open class BaseBean {
-    var errorCode = -1
-    var errorMsg = ""
-}
+data class BaseBean<T>(
+    var errorCode: Int = -1,
+    var errorMsg: String = "",
+    var data: T
+)

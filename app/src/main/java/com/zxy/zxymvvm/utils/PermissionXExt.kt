@@ -1,5 +1,7 @@
 package com.zxy.zxymvvm.utils
 
+import android.Manifest
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import com.permissionx.guolindev.PermissionX
 import kotlinx.coroutines.Dispatchers
@@ -12,9 +14,22 @@ import kotlinx.coroutines.launch
  * *
  * ******************************************
  */
+/**
+ * 使用方式
+requestPermission(
+mutableListOf(
+Manifest.permission.READ_CONTACTS,
+Manifest.permission.CAMERA,
+Manifest.permission.CALL_PHONE
+), {
 
+}, {
+Toast.makeText(this, "不同意的: $it", Toast.LENGTH_LONG).show()
+})
+ */
 fun FragmentActivity.requestPermission(permissions: MutableList<String>, onSuccess: () -> Unit, onFailed: (MutableList<String>) -> Unit) {
     var mContext = this
+
     GlobalScope.launch(Dispatchers.Main) {
         PermissionX.init(mContext)
             .permissions(permissions)

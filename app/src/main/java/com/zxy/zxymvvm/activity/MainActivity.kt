@@ -1,10 +1,7 @@
 package com.zxy.zxymvvm.activity
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -12,8 +9,8 @@ import androidx.lifecycle.observe
 import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.bean.ArticleData
+import com.zxy.zxymvvm.bean.BaseBean
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
-import com.zxy.zxymvvm.utils.requestPermission
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -27,23 +24,10 @@ class MainActivity : AppCompatActivity() {     // 1
     private val vmMainActivity: VMMainActivity by lazy {
         ViewModelProvider(this)[VMMainActivity::class.java]
     }
-    var custom: String? =null
     @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // 2
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-        requestPermission(
-            mutableListOf(
-                Manifest.permission.READ_CONTACTS,
-                Manifest.permission.CAMERA,
-                Manifest.permission.CALL_PHONE
-            ), {
-
-            }, {
-                Toast.makeText(this, "不同意的: $it", Toast.LENGTH_LONG).show()
-            })
-
         vmMainActivity.data.observe(this, {
             showData(it)
         })
@@ -56,8 +40,8 @@ class MainActivity : AppCompatActivity() {     // 1
      * 显示数据
      */
     @SuppressLint("SetTextI18n")
-    private fun showData(data: ArticleData) {
+    private fun showData(data: BaseBean<ArrayList<ArticleData>>) {
         if (data.data.isEmpty()) return
-        binding.articleData = data
+        binding.articleData = data.data[0]
     }
 }

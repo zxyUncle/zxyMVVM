@@ -1,7 +1,7 @@
 package com.zxy.zxymvvm.net
 
 import com.zxy.zxymvvm.bean.ArticleData
-import com.example.mvvm.bean.BaseBean
+import com.zxy.zxymvvm.bean.BaseBean
 import retrofit2.http.FieldMap
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -19,12 +19,12 @@ interface ApiService {
      */
 //    @FormUrlEncoded
     @POST("wxarticle/chapters")
-    suspend fun request(@FieldMap map: Map<String, Any>): BaseBean
+    suspend fun request(@FieldMap map: Map<String, Any>):  BaseBean<ArrayList<ArticleData>>
 
     /**
      * 获取公众号列表
      */
 //    @FormUrlEncoded
     @GET("wxarticle/chapters/json")
-    suspend fun getWXArticle(): ArticleData
+    suspend fun getWXArticle(): BaseBean<ArrayList<ArticleData>>
 }
