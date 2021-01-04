@@ -1,4 +1,4 @@
-package com.example.mvvm.net
+package com.zxy.zxymvvm.net
 
 import com.example.mvvm.common.LogUtil
 import com.zxy.zxymvvm.BuildConfig
@@ -64,13 +64,13 @@ object ApiFactory {
                     }
                 }
                 builder.append("\n").append(headers)
-                LogUtil.v(builder.toString())
+                LogUtil.i(NetConfigUtils.YN_TAG,builder.toString())
                 chain.proceed(this)
             }
             builder.clear()
             builder.append("Received response in " + (System.nanoTime() - startTime) / 1e6 + "ms\n")
             builder.append("code" + response.code + "\n")
-            LogUtil.v(builder.toString())
+            LogUtil.i(NetConfigUtils.YN_TAG,builder.toString())
             return response
         }
     }

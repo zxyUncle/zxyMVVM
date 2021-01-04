@@ -1,4 +1,4 @@
-package com.example.mvvm.bean
+package com.zxy.zxymvvm.bean
 
 /**
  * 加载状态

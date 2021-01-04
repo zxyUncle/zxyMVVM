@@ -1,6 +1,4 @@
-package com.example.mvvm.net
-
-import com.zxy.zxymvvm.net.NetConfigUtils
+package com.zxy.zxymvvm.net
 
 /**
  * 网络服务类

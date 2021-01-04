@@ -3,6 +3,7 @@ package com.zxy.zxymvvm.activity
 import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -26,10 +27,12 @@ class MainActivity : AppCompatActivity() {     // 1
     private val vmMainActivity: VMMainActivity by lazy {
         ViewModelProvider(this)[VMMainActivity::class.java]
     }
-
+    var custom: String? =null
+    @SuppressLint("NewApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        // 2
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         requestPermission(
             mutableListOf(
                 Manifest.permission.READ_CONTACTS,
@@ -41,18 +44,12 @@ class MainActivity : AppCompatActivity() {     // 1
                 Toast.makeText(this, "不同意的: $it", Toast.LENGTH_LONG).show()
             })
 
-        // 2
-        binding = DataBindingUtil.setContentView(
-            this,
-            R.layout.activity_main
-        )
         vmMainActivity.data.observe(this, {
             showData(it)
         })
         btnRequest.setOnClickListener {
             vmMainActivity.getData(this)
         }
-
     }
 
     /**

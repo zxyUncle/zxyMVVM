@@ -2,7 +2,6 @@ package com.zxy.zxymvvm.net
 
 import com.zxy.zxymvvm.bean.ArticleData
 import com.example.mvvm.common.ApiException
-import com.example.mvvm.net.NetworkService
 
 /**
  * 接口资源

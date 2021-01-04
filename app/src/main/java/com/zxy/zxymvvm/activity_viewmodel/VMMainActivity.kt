@@ -2,10 +2,10 @@ package com.zxy.zxymvvm.activity_viewmodel
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.example.mvvm.base.BaseViewModel
+import com.zxy.zxymvvm.base.BaseViewModel
 import com.zxy.zxymvvm.bean.ArticleData
-import com.example.mvvm.bean.LoadState
-import com.example.mvvm.common.launch
+import com.zxy.zxymvvm.bean.LoadState
+import com.zxy.zxymvvm.common.reqeust
 import com.zxy.zxymvvm.net.Repository
 
 /**
@@ -17,13 +17,10 @@ import com.zxy.zxymvvm.net.Repository
 class VMMainActivity : BaseViewModel() {
     var data = MutableLiveData<ArticleData>()
     fun getData(mContext: Context) {
-        launch({
-            loadState.value = LoadState.Loading()
+        isSHowLoad=true
+        reqeust {
             data.value = Repository.getWXArticle()
-            loadState.value = LoadState.Success()
-        }, {
-            loadState.value = LoadState.Fail()
-        })
+        }
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.mvvm.net
+package com.zxy.zxymvvm.net
 
 import com.zxy.zxymvvm.bean.ArticleData
 import com.example.mvvm.bean.BaseBean
