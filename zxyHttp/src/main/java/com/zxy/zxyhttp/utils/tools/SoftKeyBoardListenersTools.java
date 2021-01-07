@@ -1,16 +1,16 @@
-package com.zxy.zxyhttp.utils;
+package com.zxy.zxyhttp.utils.tools;
 
 import android.app.Activity;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
-public class SoftKeyBoardListeners {
+public class SoftKeyBoardListenersTools {
     private View rootView;//activity的根视图
     int rootViewVisibleHeight;//纪录根视图的显示高度
     private OnSoftKeyBoardChangeListener onSoftKeyBoardChangeListener;
 
-    public SoftKeyBoardListeners(Activity activity) {
+    public SoftKeyBoardListenersTools(Activity activity) {
         //获取activity的根视图
         rootView = activity.getWindow().getDecorView();
 

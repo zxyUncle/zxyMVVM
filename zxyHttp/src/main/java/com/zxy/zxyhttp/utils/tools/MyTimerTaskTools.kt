@@ -1,13 +1,6 @@
-package com.zxy.zxyhttp.utils
+package com.zxy.zxyhttp.utils.tools
 
 import java.util.*
-
-/**
- * Created by zsf on 2020/12/30 19:06
- * ******************************************
- * *
- * ******************************************
- */
 
 /**
  * Created by zxy on 2020/7/21 14:17
@@ -15,11 +8,11 @@ import java.util.*
  * *
  * ******************************************
  */
-class MyTimerTask : TimerTask() {
+class MyTimerTaskTools : TimerTask() {
     private var maxTime = -1
     private val mTimer: Timer? = Timer()
     private lateinit var onTimerTaskUI: OnTimerTaskUI
-    private var mytimerTask: MyTimerTask? = this
+    private var mytimerTask: MyTimerTaskTools? = this
 
 
     interface OnTimerTaskUI {

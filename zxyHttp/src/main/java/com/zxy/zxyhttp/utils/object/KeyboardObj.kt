@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.utils
+package com.zxy.zxyhttp.utils.`object`
 
 import android.graphics.Rect
 import android.view.MotionEvent
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.zxy.zxyhttp.utils.tools.SoftKeyBoardListenersTools
 
 /**
  * Created by zsf on 2020/12/23 10:14
@@ -13,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
  * * 键盘操作类
  * ******************************************
  */
-object KeyboardTools {
+object KeyboardObj {
     /**
      * 判断软键盘是否正在展示
      * @param edit 输入焦点
@@ -70,8 +71,10 @@ object KeyboardTools {
      */
     fun onSoftKeyBoardChangeListener(activity: AppCompatActivity,onShow:(Int)->Unit,onHide:(Int)->Unit){
         //软键盘状态监听
-        val softKeyBoardListener = SoftKeyBoardListeners(activity)
-        softKeyBoardListener.setListener(object :SoftKeyBoardListeners.OnSoftKeyBoardChangeListener{
+        val softKeyBoardListener =
+            SoftKeyBoardListenersTools(activity)
+        softKeyBoardListener.setListener(object :
+            SoftKeyBoardListenersTools.OnSoftKeyBoardChangeListener{
             override fun keyBoardShow(height: Int) {
                 onShow(height)
             }

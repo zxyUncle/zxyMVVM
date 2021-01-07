@@ -1,16 +1,15 @@
 package com.zxy.zxymvvm.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseFragment
-import com.zxy.zxyhttp.bean.ArticleData
-import com.zxy.zxyhttp.bean.BaseBean
-import com.zxy.zxyhttp.utils.click
+import com.zxy.zxyhttp.utils.extend.click
 import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.databinding.FragmentFirstBinding
 import com.zxy.zxymvvm.fragment_viewmodel.VMFirstFragment
+import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_first.*
 
 /**
@@ -31,6 +30,8 @@ class FirstFragment : BaseFragment<FragmentFirstBinding>() {
         vmFirstFragment.data.observe(this, {
             binding.articleData = it.data[0]
         })
+
+
     }
 
     override fun initListener() {

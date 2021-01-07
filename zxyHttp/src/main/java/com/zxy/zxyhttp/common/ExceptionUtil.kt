@@ -5,6 +5,7 @@ import androidx.annotation.StringRes
 import com.google.gson.JsonSyntaxException
 import com.google.gson.stream.MalformedJsonException
 import com.zxy.zxyhttp.R
+import com.zxy.zxyhttp.utils.tools.ApplicationsTools
 import retrofit2.HttpException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
@@ -43,7 +44,7 @@ object ExceptionUtil {
             )
             else -> showToast(
                     "${
-                        Applications.context().getString(
+                        ApplicationsTools.context().getString(
                                 R.string.common_error_do_something_fail
                         )
                     }：${e::class.java.name}"
@@ -68,7 +69,7 @@ object ExceptionUtil {
      */
     private fun showToast(@StringRes errorMsg: Int, errorCode: Int = -1) {
         showToast(
-                Applications.context().getString(
+                ApplicationsTools.context().getString(
                         errorMsg
                 ), errorCode
         )

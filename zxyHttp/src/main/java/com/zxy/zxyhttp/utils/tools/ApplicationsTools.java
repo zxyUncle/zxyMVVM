@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.common;
+package com.zxy.zxyhttp.utils.tools;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
@@ -10,10 +10,10 @@ import java.lang.reflect.Method;
 /**
  * Created by zsf on 2021/1/4 14:38
  * ******************************************
- * *
+ * * 直接获取application的Context
  * ******************************************
  */
-public class Applications {
+public class ApplicationsTools {
 
 
     @NonNull

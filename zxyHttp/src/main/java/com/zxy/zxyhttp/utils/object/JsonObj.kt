@@ -1,7 +1,6 @@
-package com.zxy.zxyhttp.utils
+package com.zxy.zxyhttp.utils.`object`
 
 import com.google.gson.Gson
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody
 
@@ -12,7 +11,7 @@ import okhttp3.RequestBody
  * ******************************************
  */
 
-object JsonUtil {
+object JsonObj {
     fun bodyVararg(vararg args: String): RequestBody {
         val map = HashMap<String, String>()
         for (i in args.indices step 2) {

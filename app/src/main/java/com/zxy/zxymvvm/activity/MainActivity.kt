@@ -1,11 +1,12 @@
 package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseAppcompatActivity
 import com.zxy.zxyhttp.bean.ArticleData
 import com.zxy.zxyhttp.bean.BaseBean
-import com.zxy.zxyhttp.utils.click
+import com.zxy.zxyhttp.utils.extend.*
 import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.databinding.ActivityMainBinding

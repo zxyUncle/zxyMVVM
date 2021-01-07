@@ -3,7 +3,7 @@ package com.zxy.zxyhttp.net
 import com.zxy.zxyhttp.BuildConfig
 import com.zxy.zxyhttp.common.gson.MGson
 import com.zxy.zxyhttp.net.NetConfigUtils.YN_TAG
-import com.zxy.zxyhttp.utils.LogcatUitls
+import com.zxy.zxyhttp.utils.tools.LogcatTools
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -63,9 +63,9 @@ object ApiFactory {
                         charset = contentType.charset(Charset.forName("UTF-8"))
                     }
                     body = buffer.readString(charset!!)
-                    LogcatUitls.printPost(YN_TAG,"${response.code}    ${request.url}",body)
+                    LogcatTools.printPost(YN_TAG,"${response.code}    ${request.url}",body)
                 } else {
-                    LogcatUitls.printGet(YN_TAG, "$headerDate","${response.code}    ${request.url}")
+                    LogcatTools.printGet(YN_TAG, "$headerDate","${response.code}    ${request.url}")
                 }
 
             return response

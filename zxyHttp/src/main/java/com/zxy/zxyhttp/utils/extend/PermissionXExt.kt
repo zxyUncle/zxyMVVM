@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.utils
+package com.zxy.zxyhttp.utils.extend
 
 import androidx.fragment.app.FragmentActivity
 import com.permissionx.guolindev.PermissionX

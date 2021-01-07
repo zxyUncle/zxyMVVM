@@ -6,7 +6,7 @@
 
     <data>
 <!--        导入其他类-->
-        <import type="com.zxy.zxyhttp.utils.ScreenUtil"/>
+        <import type="com.zxy.zxyhttp.utils.object.ScreenObj"/>
 
         <variable
             name="articleData"

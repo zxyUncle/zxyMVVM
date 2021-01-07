@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.utils;
+package com.zxy.zxyhttp.utils.tools;
 
 import android.util.Log;
 
@@ -12,7 +12,7 @@ import org.json.JSONObject;
  * * 日志格式化
  * ******************************************
  */
-public class LogcatUitls {
+public class LogcatTools {
 
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 

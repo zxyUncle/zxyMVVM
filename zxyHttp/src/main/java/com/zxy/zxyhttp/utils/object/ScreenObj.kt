@@ -1,9 +1,8 @@
-package com.zxy.zxyhttp.utils
+package com.zxy.zxyhttp.utils.`object`
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Rect
@@ -17,7 +16,6 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.view.WindowManager
 import android.widget.LinearLayout
-import androidx.core.widget.NestedScrollView
 
 import java.io.File
 import java.io.FileOutputStream
@@ -25,7 +23,7 @@ import java.io.FileOutputStream
 /**
  * 屏幕工具类，涉及到屏幕宽度、高度、密度比、(像素、dp、sp)之间的转换等。
  */
-object ScreenUtil {
+object ScreenObj {
 
     /**
      * 获取屏幕宽度，单位为px

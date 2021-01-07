@@ -1,9 +1,8 @@
-package com.zxy.zxyhttp.utils
+package com.zxy.zxyhttp.utils.extend
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.zxy.zxyhttp.R
-import com.zxy.zxyhttp.common.Applications
+import com.zxy.zxyhttp.utils.tools.ApplicationsTools
 
 /**
  * Created by zxy on 2020/7/22 13:58
@@ -12,5 +11,5 @@ import com.zxy.zxyhttp.common.Applications
  * ******************************************
  */
 fun ImageView.loadUrl(img: String="") {
-    Glide.with(Applications.context()).load(img).into(this)
+    Glide.with(ApplicationsTools.context()).load(img).into(this)
 }
