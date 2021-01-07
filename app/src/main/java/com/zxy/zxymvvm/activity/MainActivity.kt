@@ -1,16 +1,15 @@
 package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseAppcompatActivity
 import com.zxy.zxyhttp.bean.ArticleData
 import com.zxy.zxyhttp.bean.BaseBean
 import com.zxy.zxyhttp.utils.extend.*
+import com.zxy.zxyhttp.utils.obj.NavigationObj
 import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
-import com.zxy.zxymvvm.fragment.FirstFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -34,7 +33,17 @@ class MainActivity : BaseAppcompatActivity<ActivityMainBinding>() {
         btnRequest.click {
             vmMainActivity.getData()
         }
-        supportFragmentManager.beginTransaction().replace(R.id.mFrameLayout,FirstFragment()).commit()
+        NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
+
+        mRadioGroup.check(R.id.rbFirst)
+        mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
+            when (id) {
+                R.id.rbFirst ->
+                    NavigationObj.navSkip(R.id.action_secoud_to_first)
+                R.id.rbSecond ->
+                    NavigationObj.navSkip(R.id.action_first_to_secoud)
+            }
+        }
     }
 
     /**

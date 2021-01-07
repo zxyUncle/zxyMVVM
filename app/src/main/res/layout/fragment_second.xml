@@ -14,19 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:background="@color/black"
         android:orientation="vertical"
         tools:ignore="Orientation">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="我是一个Fragment" />
-
         <Button
-            android:id="@+id/btnGet"
-            android:text="@{articleData.name}"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:background="@color/black" />
+            android:id="@+id/btnHome"
+            android:text="跳转到Home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </layout>

@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.utils.`object`
+package com.zxy.zxyhttp.utils.obj
 
 import com.google.gson.Gson
 import okhttp3.MediaType.Companion.toMediaTypeOrNull

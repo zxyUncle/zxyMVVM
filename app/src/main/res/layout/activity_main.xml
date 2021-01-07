@@ -5,25 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<!--        导入其他类-->
-        <import type="com.zxy.zxyhttp.utils.object.ScreenObj"/>
+        <!--        导入其他类-->
+        <!--        <import type="com.zxy.zxyhttp.utils.obj.JsonObj"/>-->
 
         <variable
             name="articleData"
-            type="com.zxy.zxyhttp.bean.ArticleData"/>
+            type="com.zxy.zxyhttp.bean.ArticleData" />
 
-        <variable
-            name="list"
-            type="java.util.ArrayList&lt;String>" />
+        <!--        <variable-->
+        <!--            name="list"-->
+        <!--            type="java.util.ArrayList&lt;String>" />-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".activity.MainActivity">
+        android:layout_height="match_parent">
 
-<!--        <include layout="@layout/name"-->
-<!--            bind:user="@{articleData}"/>-->
+        <!--        <include layout="@layout/name"-->
+        <!--            bind:user="@{articleData}"/>-->
 
         <Button
             android:id="@+id/btnRequest"
@@ -38,7 +37,7 @@
             android:id="@+id/etRequest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{articleData.name ?? 123,default=请输入内容}"
+            android:text="@{articleData.name,default=请输入内容}"
             app:layout_constraintTop_toBottomOf="@id/btnRequest" />
 
         <EditText
@@ -52,7 +51,40 @@
             android:id="@+id/mFrameLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/mRadioGroup"
             app:layout_constraintTop_toBottomOf="@id/etRequest1" />
+
+
+        <RadioGroup
+            android:id="@+id/mRadioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mFrameLayout">
+
+            <RadioButton
+                android:id="@+id/rbFirst"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:textColor="@drawable/selector_main_color"
+                android:text="First" />
+
+            <RadioButton
+                android:id="@+id/rbSecond"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:button="@null"
+                android:textColor="@drawable/selector_main_color"
+                android:gravity="center"
+                android:text="Second" />
+        </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
