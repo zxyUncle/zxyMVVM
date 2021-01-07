@@ -14,9 +14,9 @@ import com.zxy.zxyhttp.utils.tools.ApplicationsTools
  * * 所有保存的数据统一处理
  * ******************************************
  */
-//所有的
-val SharedPreferences.BASE_ArticleData: String
-    get() = "ArticleData"
+//所有的KEY 统一处理
+val SharedPreferences.BASE_ArticleData: String get() = "ArticleData"  //基类的Key
+
 
 val gson: Gson by lazy {
     Gson()
@@ -27,7 +27,7 @@ val sharedPreferences: SharedPreferences by lazy {
 }
 
 /**
- *  保存基类示例-
+ *  保存基类示例
  *  sharedPreferences.run {
  *      saveBean(BASE_ArticleData, ArticleData())
  *      getBean<ArticleData>(BASE_ArticleData)
