@@ -23,17 +23,20 @@ Step 1
 
 2、NavigationFragment跳转,可以跳转到Fragment，也可以跳转到Activity
 -----
-1、Activity跳转到Fragment
+1、初始化navigation配置文件
+
+       NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
+2、Activity跳转到Fragment
 
        NavigationObj.navSkip(R.id.firstFragment,bundle)
-2、Fragment跳转到Framgnet
+3、Fragment跳转到Framgnet
 
        NavigationObj.navSkipFragment(view,R.id.homeActivity)
-3、跳转到已经存在的Fragment，复用Fragment
+4、跳转到已经存在的Fragment，复用Fragment
 
        NavigationObj.navSkipExist(R.id.firstFragment)
 
-3、不明白的看demo，使用源码Module，不要使用地址依赖
+5、不明白的看demo，使用源码Module，不要使用地址依赖
 
 
 
