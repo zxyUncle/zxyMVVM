@@ -83,7 +83,7 @@ object NavigationObj {
         }
     }
 
-
+    //跳转到已存在的Fragment
     fun navSkipExist(fragmentId: Int, inclusive: Boolean = false) {
         navController.popBackStack(fragmentId, inclusive)
     }
@@ -99,7 +99,7 @@ object NavigationObj {
         }
         return null
     }
-
+    //返回上一个
     fun navigateUp() {
         navController.navigateUp()
     }
