@@ -1,8 +1,10 @@
 package com.zxy.zxyhttp.net
 
 /**
- * 网络服务类
- * @author ssq
+ * Created by zsf on 2021/1/8 12:00
+ * ******************************************
+ * *
+ * ******************************************
  */
 object NetworkService {
     // 接口API服务(挂起)

@@ -37,9 +37,10 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
 
 /**
- * 自定义列表解析适配器
- *
- * @author huilin
+ * Created by zsf on 2021/1/8 12:00
+ * ******************************************
+ * *
+ * ******************************************
  */
 class CollectionTypeAdapterFactory implements TypeAdapterFactory {
     private final ConstructorConstructor constructorConstructor;

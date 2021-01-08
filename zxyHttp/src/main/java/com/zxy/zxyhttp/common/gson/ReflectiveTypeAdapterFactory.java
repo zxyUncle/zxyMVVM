@@ -49,9 +49,10 @@ import java.util.concurrent.atomic.AtomicLongArray;
 
 
 /**
- * 自定义对象Object解析适配器
- *
- * @author huilin
+ * Created by zsf on 2021/1/8 12:01
+ * ******************************************
+ * *
+ * ******************************************
  */
 class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     private final ConstructorConstructor constructorConstructor;
