@@ -17,7 +17,7 @@ Step 1
     var data = MutableLiveData<BaseBean<ArrayList<ArticleData>>>()
     fun getData() {
         reqeustApi({
-            data.value = it.getWXArticle()
+            data.value = getWXArticle()
         })
     }
 
