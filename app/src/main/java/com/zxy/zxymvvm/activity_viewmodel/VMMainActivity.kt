@@ -14,10 +14,11 @@ import com.zxy.zxyhttp.common.reqeustApi
  */
 class VMMainActivity : BaseViewModel() {
     var data = MutableLiveData<BaseBean<ArrayList<ArticleData>>>()
-
     fun getData() {
         reqeustApi({
             data.value = it.getWXArticle()
         })
     }
 }
+
+
