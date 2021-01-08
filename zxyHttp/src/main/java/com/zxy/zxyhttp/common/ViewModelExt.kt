@@ -15,7 +15,7 @@ import kotlinx.coroutines.launch
  * * isShowLoad是否显示加载动画
  * ******************************************
  */
-fun BaseViewModel.reqeustApi(onComplete: suspend (ApiService) -> Unit,isShowLoad:Boolean = false) {
+fun BaseViewModel.reqeustApi(onComplete: suspend ApiService.() -> Unit,isShowLoad:Boolean = false) {
     var baseViewModel: BaseViewModel = this
     baseViewModel.isShowLoad = isShowLoad
     baseViewModel.loadStatus(loading)

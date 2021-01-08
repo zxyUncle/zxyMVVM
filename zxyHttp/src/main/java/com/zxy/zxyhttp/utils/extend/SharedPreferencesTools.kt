@@ -38,6 +38,7 @@ fun SharedPreferences.saveBean(key: String, articleData: ArticleData) {
         putString(key, gson.toJson(articleData))
     }
 }
+
 inline fun <reified T> SharedPreferences.getBean(key: String): T {
     return sharedPreferences.run {
         gson.fromJson(getString(key, gson.toJson(ArticleData())), T::class.java)

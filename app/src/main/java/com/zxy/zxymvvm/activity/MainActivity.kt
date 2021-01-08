@@ -42,10 +42,12 @@ class MainActivity : BaseAppcompatActivity<ActivityMainBinding>() {
         mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
             when (id) {
                 R.id.rbFirst ->{
+
                     val bundle = bundle {
                         putString("name", "First")
                         putString("age", "12")
                     }
+
                     NavigationObj.navSkip(R.id.firstFragment,bundle)
                 }
                 R.id.rbSecond ->
