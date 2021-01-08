@@ -31,7 +31,7 @@ Step 1
        NavigationObj.navSkip(R.id.firstFragment,bundle)
 3、Fragment跳转到Framgnet
 
-       NavigationObj.navSkipFragment(view,R.id.homeActivity)
+       NavigationObj.navSkipFragment(view,R.id.firstFragment)
 4、跳转到已经存在的Fragment，复用Fragment
 
        NavigationObj.navSkipExist(R.id.firstFragment)
