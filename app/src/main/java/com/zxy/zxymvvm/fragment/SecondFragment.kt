@@ -36,7 +36,10 @@ class SecondFragment : BaseFragment<FragmentFirstBinding>() {
     override fun initListener() {
         super.initListener()
         btnHome.click {
-            NavigationObj.navSkipFragment(view,R.id.action_secoud_to_home)
+            NavigationObj.navSkipFragment(view,R.id.homeActivity)
+        }
+        btnFirst.click {
+            NavigationObj.navSkipExist(R.id.firstFragment)
         }
     }
 

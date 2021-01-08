@@ -7,39 +7,23 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        tools:layout="@layout/fragment_first"
         android:name="com.zxy.zxymvvm.fragment.FirstFragment"
-        android:label="FirstFragment" >
-        <action
-            android:id="@+id/action_first_to_secoud"
-            app:destination="@id/secondFragment"
-            app:enterAnim="@anim/in_from_right"
-            app:exitAnim="@anim/out_to_left"
-            />
+        android:label="FirstFragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_first">
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        tools:layout="@layout/fragment_second"
         android:name="com.zxy.zxymvvm.fragment.SecondFragment"
-        android:label="SecondFragment" >
-        <action
-            android:id="@+id/action_secoud_to_first"
-            app:destination="@id/firstFragment"
-            app:enterAnim="@anim/in_from_left"
-            app:exitAnim="@anim/out_to_right"
-            />
-        <action
-            android:id="@+id/action_secoud_to_home"
-            app:destination="@id/homeActivity"
-            app:enterAnim="@anim/in_from_right"
-            app:exitAnim="@anim/out_to_left"
-            />
+        android:label="SecondFragment"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_second">
     </fragment>
 
+    <!--    模拟跳转到Actiivty，其实用全Fragment，-->
     <activity
         android:id="@+id/homeActivity"
         android:name="com.zxy.zxymvvm.activity.HomeActivity"
         android:label="activity_home"
-        tools:layout="@layout/activity_home" >
-    </activity>
+        tools:layout="@layout/activity_home"/>
 </navigation>

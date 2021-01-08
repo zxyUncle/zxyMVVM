@@ -1,6 +1,8 @@
 package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
+import android.os.Bundle
+import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseAppcompatActivity
 import com.zxy.zxyhttp.bean.ArticleData
@@ -35,13 +37,19 @@ class MainActivity : BaseAppcompatActivity<ActivityMainBinding>() {
         }
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
 
+
         mRadioGroup.check(R.id.rbFirst)
         mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
             when (id) {
-                R.id.rbFirst ->
-                    NavigationObj.navSkip(R.id.action_secoud_to_first)
+                R.id.rbFirst ->{
+                    val bundle = bundle {
+                        putString("name", "First")
+                        putString("age", "12")
+                    }
+                    NavigationObj.navSkip(R.id.firstFragment,bundle)
+                }
                 R.id.rbSecond ->
-                    NavigationObj.navSkip(R.id.action_first_to_secoud)
+                    NavigationObj.navSkip(R.id.secondFragment, bundle {  },NavigationObj.navOptionsExit)
             }
         }
     }

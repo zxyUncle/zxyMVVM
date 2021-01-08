@@ -22,5 +22,12 @@
             android:text="跳转到Home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnFirst"
+            android:layout_marginTop="20dp"
+            android:text="返回到第一个FirstFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 </layout>
