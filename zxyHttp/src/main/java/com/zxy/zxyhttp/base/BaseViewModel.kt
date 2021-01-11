@@ -11,7 +11,7 @@ import com.zxy.zxyhttp.net.bean.LoadState
  * ******************************************
  */
 abstract class BaseViewModel : ViewModel() {
-    // 加载状态
+    // 加载状态- 暂时未用到，根据需求来扩展
     val loadState = MutableLiveData<LoadState>()
 
     var isShowLoad = false //是否显示加载动画

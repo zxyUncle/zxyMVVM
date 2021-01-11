@@ -33,8 +33,9 @@ fun BaseViewModel.reqeustApi(onComplete: suspend ApiService.() -> Unit,isShowLoa
         } catch (e: Exception) {
             baseViewModel.loadStatus(loadFail)
         } finally {
-            LoadTools.INSTANCE.hide()
-            onComplete(NetworkService.api)
+            onComplete(NetworkService.api).let {
+                LoadTools.INSTANCE //在请求完毕之后，关闭加载中动画
+            }
         }
     }
 }
