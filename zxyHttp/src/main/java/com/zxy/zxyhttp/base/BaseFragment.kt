@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.zxy.zxyhttp.utils.extend.ZLogger
 
 /**
  * Created by zsf on 2021/1/4 13:50
@@ -14,7 +15,7 @@ import androidx.fragment.app.Fragment
  * *
  * ******************************************
  */
-open abstract class BaseFragment<B : ViewDataBinding>:Fragment() {
+open abstract class BaseFragment<B : ViewDataBinding>:Fragment(), ZLogger {
 
     lateinit var binding: B
 
@@ -22,6 +23,7 @@ open abstract class BaseFragment<B : ViewDataBinding>:Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         binding =  DataBindingUtil.inflate(inflater, getLayoutId(),container,false)
+        binding.lifecycleOwner = this
         return binding.root
     }
 
@@ -34,4 +36,9 @@ open abstract class BaseFragment<B : ViewDataBinding>:Fragment() {
     open fun initView(view: View, savedInstanceState: Bundle?){}
 
     open fun initListener(){}
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.unbind()
+    }
 }

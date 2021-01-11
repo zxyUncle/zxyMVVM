@@ -1,12 +1,10 @@
 package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
-import android.os.Bundle
-import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
-import com.zxy.zxyhttp.base.BaseAppcompatActivity
-import com.zxy.zxyhttp.bean.ArticleData
-import com.zxy.zxyhttp.bean.BaseBean
+import com.zxy.zxyhttp.base.BaseActivity
+import com.zxy.zxyhttp.net.bean.ArticleData
+import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.utils.extend.*
 import com.zxy.zxyhttp.utils.obj.NavigationObj
 import com.zxy.zxymvvm.R
@@ -20,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  * *
  * ******************************************
  */
-class MainActivity : BaseAppcompatActivity<ActivityMainBinding>() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
     private val vmMainActivity: VMMainActivity by lazy {
         ViewModelProvider(this)[VMMainActivity::class.java]
     }
@@ -36,8 +34,6 @@ class MainActivity : BaseAppcompatActivity<ActivityMainBinding>() {
             vmMainActivity.getData()
         }
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
-
-
         mRadioGroup.check(R.id.rbFirst)
         mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
             when (id) {
@@ -55,7 +51,6 @@ class MainActivity : BaseAppcompatActivity<ActivityMainBinding>() {
             }
         }
     }
-
     /**
      * 显示数据
      */

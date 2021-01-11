@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.common
+package com.zxy.zxyhttp.net.common
 
 import android.widget.Toast
 import com.zxy.zxyhttp.utils.tools.ApplicationsTools

@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.common
+package com.zxy.zxyhttp.net.common
 
 import android.accounts.NetworkErrorException
 import androidx.annotation.StringRes

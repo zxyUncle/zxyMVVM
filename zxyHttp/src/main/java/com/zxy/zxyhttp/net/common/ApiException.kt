@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.common
+package com.zxy.zxyhttp.net.common
 
 /**
  * Created by zsf on 2021/1/4 14:39

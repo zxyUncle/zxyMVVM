@@ -1,7 +1,7 @@
 package com.zxy.zxyhttp.net
 
-import com.zxy.zxyhttp.bean.ArticleData
-import com.zxy.zxyhttp.bean.BaseBean
+import com.zxy.zxyhttp.net.bean.ArticleData
+import com.zxy.zxyhttp.net.bean.BaseBean
 import retrofit2.http.GET
 
 /**

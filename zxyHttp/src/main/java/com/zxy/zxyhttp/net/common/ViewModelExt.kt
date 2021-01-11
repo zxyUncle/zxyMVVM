@@ -1,8 +1,8 @@
-package com.zxy.zxyhttp.common
+package com.zxy.zxyhttp.net.common
 
 import androidx.lifecycle.viewModelScope
 import com.zxy.zxyhttp.base.BaseViewModel
-import com.zxy.zxyhttp.bean.BaseBean
+import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.net.ApiService
 import com.zxy.zxyhttp.net.NetConfigUtils
 import com.zxy.zxyhttp.net.NetworkService

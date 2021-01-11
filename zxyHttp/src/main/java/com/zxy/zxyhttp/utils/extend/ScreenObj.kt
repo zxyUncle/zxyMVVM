@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.utils.obj
+package com.zxy.zxyhttp.utils.extend
 
 import android.app.Activity
 import android.content.Context
@@ -16,14 +16,17 @@ import android.view.View
 import android.view.ViewConfiguration
 import android.view.WindowManager
 import android.widget.LinearLayout
+import com.zxy.zxyhttp.utils.tools.ApplicationsTools
 
 import java.io.File
 import java.io.FileOutputStream
 
 /**
- * 屏幕工具类，涉及到屏幕宽度、高度、密度比、(像素、dp、sp)之间的转换等。
+ * Created by zsf on 2021/1/11 14:59
+ * ******************************************
+ * * 屏幕工具类，涉及到屏幕宽度、高度、密度比、(像素、dp、sp)之间的转换等。
+ * ******************************************
  */
-object ScreenObj {
 
     /**
      * 获取屏幕宽度，单位为px
@@ -31,7 +34,7 @@ object ScreenObj {
      * @param context 应用程序上下文
      * @return 屏幕宽度，单位px
      */
-    fun getScreenWidth(context: Context?): Int {
+    fun getScreenWidth(context: Context?=ApplicationsTools.context()): Int {
         return getDisplayMetrics(context).widthPixels
     }
 
@@ -41,7 +44,7 @@ object ScreenObj {
      * @param context 应用程序上下文
      * @return 屏幕高度，单位px
      */
-    fun getScreenHeight(context: Context?): Int {
+    fun getScreenHeight(context: Context?=ApplicationsTools.context()): Int {
         return getDisplayMetrics(context).heightPixels
     }
 
@@ -51,7 +54,7 @@ object ScreenObj {
      * @param context 应用程序上下文
      * @return
      */
-    fun getDensity(context: Context?): Float {
+    fun getDensity(context: Context?=ApplicationsTools.context()): Float {
         return getDisplayMetrics(context).density
     }
 
@@ -61,7 +64,7 @@ object ScreenObj {
      * @param context 应用程序上下文
      * @return
      */
-    fun getScaledDensity(context: Context?): Float {
+    fun getScaledDensity(context: Context?=ApplicationsTools.context()): Float {
         return getDisplayMetrics(context).scaledDensity
     }
 
@@ -72,8 +75,8 @@ object ScreenObj {
      * @param dpValue dp值
      * @return 转换后的px值
      */
-    fun dp2px(context: Context?, dpValue: Int): Int {
-        return (dpValue * getDensity(context) + 0.5f).toInt()
+    fun dp2px(dpValue: Int): Int {
+        return (dpValue * getDensity() + 0.5f).toInt()
     }
 
     /**
@@ -83,8 +86,8 @@ object ScreenObj {
      * @param pxValue px值
      * @return 转换后的dp值
      */
-    fun px2dp(context: Context, pxValue: Int): Int {
-        return (pxValue / getDensity(context) + 0.5f).toInt()
+    fun px2dp(pxValue: Int): Int {
+        return (pxValue / getDensity() + 0.5f).toInt()
     }
 
     /**
@@ -94,8 +97,8 @@ object ScreenObj {
      * @param spValue sp值
      * @return 转换后的px值
      */
-    fun sp2px(context: Context, spValue: Int): Int {
-        return (spValue * getScaledDensity(context) + 0.5f).toInt()
+    fun sp2px(spValue: Int): Int {
+        return (spValue * getScaledDensity() + 0.5f).toInt()
     }
 
     /**
@@ -105,8 +108,8 @@ object ScreenObj {
      * @param pxValue px值
      * @return 转换后的sp值
      */
-    fun px2sp(context: Context, pxValue: Int): Int {
-        return (pxValue / getScaledDensity(context) + 0.5f).toInt()
+    fun px2sp(pxValue: Int): Int {
+        return (pxValue / getScaledDensity() + 0.5f).toInt()
     }
 
     /**
@@ -115,14 +118,14 @@ object ScreenObj {
      * @param context
      * @return
      */
-    fun getStatusHeight(context: Context): Int {
+    fun getStatusHeight(): Int {
         var statusHeight = -1
         try {
             val clazz = Class.forName("com.android.internal.R\$dimen")
             val `object` = clazz.newInstance()
             val height =
                 Integer.parseInt(clazz.getField("status_bar_height").get(`object`)!!.toString())
-            statusHeight = context.resources.getDimensionPixelSize(height)
+            statusHeight = ApplicationsTools.context().resources.getDimensionPixelSize(height)
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -313,5 +316,4 @@ object ScreenObj {
         }
         return result
     }
-}
 

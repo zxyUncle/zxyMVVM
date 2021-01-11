@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import com.google.gson.Gson
-import com.zxy.zxyhttp.bean.ArticleData
+import com.zxy.zxyhttp.net.bean.ArticleData
 import com.zxy.zxyhttp.utils.tools.ApplicationsTools
 
 /**

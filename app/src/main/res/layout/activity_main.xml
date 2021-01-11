@@ -10,7 +10,7 @@
 
         <variable
             name="articleData"
-            type="com.zxy.zxyhttp.bean.ArticleData" />
+            type="com.zxy.zxyhttp.net.bean.ArticleData" />
 
         <!--        <variable-->
         <!--            name="list"-->

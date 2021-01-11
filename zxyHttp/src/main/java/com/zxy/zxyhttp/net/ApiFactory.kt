@@ -1,7 +1,7 @@
 package com.zxy.zxyhttp.net
 
 import com.zxy.zxyhttp.BuildConfig
-import com.zxy.zxyhttp.common.gson.MGson
+import com.zxy.zxyhttp.net.common.gson.MGson
 import com.zxy.zxyhttp.net.NetConfigUtils.YN_TAG
 import com.zxy.zxyhttp.utils.tools.LogcatTools
 import okhttp3.Interceptor

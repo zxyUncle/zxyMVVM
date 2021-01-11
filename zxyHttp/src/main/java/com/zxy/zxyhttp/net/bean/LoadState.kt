@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.bean
+package com.zxy.zxyhttp.net.bean
 
 /**
  * Created by zsf on 2021/1/4 14:38
