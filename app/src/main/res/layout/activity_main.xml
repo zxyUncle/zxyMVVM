@@ -58,7 +58,7 @@
         <RadioGroup
             android:id="@+id/mRadioGroup"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/mFrameLayout">
