@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.common.gson;
+package com.zxy.zxyhttp.net.common.gson;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;

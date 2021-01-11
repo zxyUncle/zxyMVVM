@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.common.gson;
+package com.zxy.zxyhttp.net.common.gson;
 
 import android.text.TextUtils;
 
