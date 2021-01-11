@@ -74,4 +74,6 @@ dependencies {
     def nav_version = "2.3.2"
     api "android.arch.navigation:navigation-fragment:$nav_version" // use -ktx for Kotlin
     api "android.arch.navigation:navigation-ui:$nav_version" // use -ktx for Kotlin
+
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
 }

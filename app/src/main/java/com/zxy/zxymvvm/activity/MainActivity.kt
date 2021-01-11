@@ -31,6 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             showData(it)
         })
         btnRequest.click {
+            showLoad()//加载中--显示可以手动，隐藏在请求成功或者事后之后会自动隐藏
             vmMainActivity.getData()
         }
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)

@@ -6,6 +6,7 @@ import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.net.ApiService
 import com.zxy.zxyhttp.net.NetConfigUtils
 import com.zxy.zxyhttp.net.NetworkService
+import com.zxy.zxyhttp.utils.extend.LoadTools
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 
@@ -32,6 +33,7 @@ fun BaseViewModel.reqeustApi(onComplete: suspend ApiService.() -> Unit,isShowLoa
         } catch (e: Exception) {
             baseViewModel.loadStatus(loadFail)
         } finally {
+            LoadTools.INSTANCE.hide()
             onComplete(NetworkService.api)
         }
     }

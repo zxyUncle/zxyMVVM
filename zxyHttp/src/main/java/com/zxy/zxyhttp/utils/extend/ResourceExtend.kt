@@ -15,6 +15,7 @@ import androidx.core.text.HtmlCompat
  * ******************************************
  */
 fun Context.stringValue(@StringRes stringRes: Int) = resources.getString(stringRes)
+fun Context.stringValue(stringRes: String) = stringRes
 
 fun Context.drawableValue(@DrawableRes drawableRes: Int) = ContextCompat.getDrawable(this, drawableRes)
 
