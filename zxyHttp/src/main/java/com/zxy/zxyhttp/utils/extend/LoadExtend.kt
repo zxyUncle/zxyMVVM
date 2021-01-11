@@ -1,7 +1,7 @@
 package com.zxy.zxyhttp.utils.extend
 
 import android.content.Context
-import com.kaopiz.kprogresshud.KProgressHUD
+import com.zxy.zxyhttp.utils.tools.LoadTools
 
 /**
  * Created by zsf on 2021/1/11 15:51

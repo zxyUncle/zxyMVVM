@@ -1,8 +1,7 @@
-package com.zxy.zxyhttp.utils.extend
+package com.zxy.zxyhttp.utils.tools
 
 import android.content.Context
 import com.kaopiz.kprogresshud.KProgressHUD
-import com.zxy.zxyhttp.R
 
 /**
  * Created by zxy on 2020/8/6 16:06

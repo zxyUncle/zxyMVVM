@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
  * ******************************************
  */
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+    //ViewMode
     private val vmMainActivity: VMMainActivity by lazy {
         ViewModelProvider(this)[VMMainActivity::class.java]
     }
@@ -34,20 +35,21 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             showLoad()//加载中--，会自动隐藏，放在actiivty可以对Viewmode复用
             vmMainActivity.getData()
         }
+        //初始化跳转
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
         mRadioGroup.check(R.id.rbFirst)
         mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
             when (id) {
                 R.id.rbFirst ->{
-
                     val bundle = bundle {
                         putString("name", "First")
                         putString("age", "12")
                     }
-
+                    //跳转到firstFragment
                     NavigationObj.navSkip(R.id.firstFragment,bundle)
                 }
                 R.id.rbSecond ->
+                    //跳转到secondFragment,动态改变跳转动画
                     NavigationObj.navSkip(R.id.secondFragment, bundle {  },NavigationObj.navOptionsExit)
             }
         }

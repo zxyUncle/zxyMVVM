@@ -21,7 +21,7 @@ import kotlin.math.min
 /**
  * Created by zsf on 2020/12/22 19:19
  * ******************************************
- * *
+ * * View扩展
  * ******************************************
  */
 fun View.zVisibility(type: Int = View.VISIBLE) {

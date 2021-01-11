@@ -6,7 +6,7 @@ import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.net.ApiService
 import com.zxy.zxyhttp.net.NetConfigUtils
 import com.zxy.zxyhttp.net.NetworkService
-import com.zxy.zxyhttp.utils.extend.LoadTools
+import com.zxy.zxyhttp.utils.tools.LoadTools
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 

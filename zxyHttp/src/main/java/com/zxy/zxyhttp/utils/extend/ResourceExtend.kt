@@ -11,7 +11,7 @@ import androidx.core.text.HtmlCompat
 /**
  * Created by zsf on 2021/1/11 14:47
  * ******************************************
- * *
+ * * 资源扩展
  * ******************************************
  */
 fun Context.stringValue(@StringRes stringRes: Int) = resources.getString(stringRes)
