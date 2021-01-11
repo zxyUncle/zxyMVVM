@@ -13,7 +13,3 @@ import com.kaopiz.kprogresshud.KProgressHUD
 fun Context.showLoad(message:String="加载中...") {
     LoadTools.INSTANCE.show(this,message)
 }
-
-fun Context.hideLoad() {
-    LoadTools.INSTANCE.hide()
-}
