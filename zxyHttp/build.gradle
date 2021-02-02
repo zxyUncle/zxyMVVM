@@ -69,8 +69,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.5.2'
     //navigation
     def nav_version = "2.3.2"
-    implementation "android.arch.navigation:navigation-fragment:$nav_version" // use -ktx for Kotlin
-    implementation "android.arch.navigation:navigation-ui:$nav_version" // use -ktx for Kotlin
+    api "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    api "androidx.navigation:navigation-ui-ktx:$nav_version"
     //加载动画
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     //Android KTX
