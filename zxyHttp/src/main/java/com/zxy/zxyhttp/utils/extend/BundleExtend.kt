@@ -13,3 +13,6 @@ fun bundle( callback: Bundle.() -> Unit):Bundle{
     callback(bundle)
     return bundle
 }
+fun bundle():Bundle{
+    return Bundle()
+}

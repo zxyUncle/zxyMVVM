@@ -14,7 +14,7 @@ import com.zxy.zxyhttp.utils.tools.ApplicationsTools
  * * 所有保存的数据统一处理
  * ******************************************
  */
-//所有的KEY 统一处理
+//所有的Bean KEY 统一处理
 val SharedPreferences.BASE_ArticleData: String get() = "ArticleData"  //基类的Key
 
 
@@ -22,9 +22,17 @@ val gson: Gson by lazy {
     Gson()
 }
 
+//初始化延迟加载，config文件名字
 val sharedPreferences: SharedPreferences by lazy {
     ApplicationsTools.context().getSharedPreferences("config", AppCompatActivity.MODE_PRIVATE)
 }
+
+/**
+ *  普通保存参数示例
+ *  sharedPreferences.run {
+ *      putString("key","")
+ *  }
+ */
 
 /**
  *  保存基类示例

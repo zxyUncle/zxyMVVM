@@ -1,6 +1,7 @@
 package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseActivity
 import com.zxy.zxyhttp.net.bean.ArticleData
@@ -11,6 +12,7 @@ import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.delay
 
 /**
  * Created by zsf on 2020/11/19 10:07
@@ -28,6 +30,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         super.initView()
+        AAA()
         vmMainActivity.data.observe(this, {
             showData(it)
         })
@@ -38,6 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         //初始化跳转
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
         mRadioGroup.check(R.id.rbFirst)
+        bundle()
         mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
             when (id) {
                 R.id.rbFirst ->{
@@ -60,5 +64,18 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     @SuppressLint("SetTextI18n")
     private fun showData(data: BaseBean<ArrayList<ArticleData>>) {
         binding.articleData = data.data[0]
+    }
+
+    private fun AAA(){
+        launchIOToMain({
+            Log.e("zxy","123")
+            delay(6000)
+            Log.e("zxy","456")
+            "123"
+        },{
+            Log.e("zxy","同步主线程")
+        },{
+            Log.e("zxy","异常")
+        })
     }
 }

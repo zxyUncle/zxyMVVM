@@ -2,6 +2,7 @@ package com.zxy.zxyhttp.utils.extend
 
 import android.widget.ImageView
 import com.bumptech.glide.Glide
+import com.zxy.zxyhttp.R
 import com.zxy.zxyhttp.utils.tools.ApplicationsTools
 
 /**
