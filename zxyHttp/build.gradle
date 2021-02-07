@@ -81,4 +81,6 @@ dependencies {
     api 'com.gyf.immersionbar:immersionbar:3.0.0'    // 基础依赖包，必须要依赖
     api 'com.gyf.immersionbar:immersionbar-components:3.0.0'// fragment实现（可选）
     api 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'// kotlin扩展（可选）
+    //BaseRecyclerViewAdapterHelper
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
 }
