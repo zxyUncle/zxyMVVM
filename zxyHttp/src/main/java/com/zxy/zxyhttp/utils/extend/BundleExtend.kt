@@ -8,11 +8,9 @@ import android.os.Bundle
  * * 自定义Bundle扩展
  * ******************************************
  */
-fun bundle( callback: Bundle.() -> Unit):Bundle{
+
+fun bundle(callback: (Bundle.() -> Unit) = {}): Bundle {
     val bundle = Bundle()
     callback(bundle)
     return bundle
-}
-fun bundle():Bundle{
-    return Bundle()
 }

@@ -23,7 +23,7 @@ import kotlinx.coroutines.*
  */
 fun <T> launchIOToMain(
     block:  suspend CoroutineScope.() -> T,
-    callback: (T) -> Unit,
+    callback:(T) -> Unit,
     error: ((Exception) -> Unit) = {}
 ): Job {
     return GlobalScope.launch {
