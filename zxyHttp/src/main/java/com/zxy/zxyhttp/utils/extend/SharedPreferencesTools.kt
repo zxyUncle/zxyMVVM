@@ -1,4 +1,5 @@
 @file:Suppress("UNCHECKED_CAST")
+
 package com.zxy.zxyhttp.utils.extend
 
 import android.content.SharedPreferences
@@ -17,10 +18,6 @@ import com.zxy.zxyhttp.utils.tools.ApplicationsTools
 //所有的Bean KEY 统一处理
 val SharedPreferences.BASE_ArticleData: String get() = "ArticleData"  //基类的Key
 
-
-val gson: Gson by lazy {
-    Gson()
-}
 
 //初始化延迟加载，config文件名字
 val sharedPreferences: SharedPreferences by lazy {
@@ -52,6 +49,7 @@ inline fun <reified T> SharedPreferences.getBean(key: String): T {
         gson.fromJson(getString(key, gson.toJson(ArticleData())), T::class.java)
     }
 }
+
 
 
 

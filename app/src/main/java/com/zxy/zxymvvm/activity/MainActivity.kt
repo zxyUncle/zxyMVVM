@@ -1,6 +1,7 @@
 package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseActivity
@@ -12,7 +13,10 @@ import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 /**
  * Created by zsf on 2020/11/19 10:07
@@ -21,7 +25,8 @@ import kotlinx.coroutines.delay
  * ******************************************
  */
 class MainActivity : BaseActivity<ActivityMainBinding>() {
-    private lateinit var type:String
+    private lateinit var type: String
+
     //ViewMode
     private val vmMainActivity: VMMainActivity by lazy {
         ViewModelProvider(this)[VMMainActivity::class.java]
@@ -43,28 +48,36 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
         mRadioGroup.check(R.id.rbFirst)
 
-        val bundle1 = bundle()
-        val bundle = bundle {
-            putString("name", "First")
-            putString("age", "12")
-        }
+//        startNewActivity<Activity>(bundle {
+//            putString("name", "First")
+//            putString("age", "12")
+//        })
+
+//        val articleData: ArticleData = gson.fromJson("")
+
+
 
         mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
             when (id) {
-                R.id.rbFirst ->{
+                R.id.rbFirst -> {
                     val bundle = bundle {
                         putString("name", "First")
                         putString("age", "12")
                     }
                     //跳转到firstFragment
-                    NavigationObj.navSkip(R.id.firstFragment,bundle)
+                    NavigationObj.navSkip(R.id.firstFragment, bundle)
                 }
                 R.id.rbSecond ->
                     //跳转到secondFragment,动态改变跳转动画
-                    NavigationObj.navSkip(R.id.secondFragment, bundle(),NavigationObj.navOptionsExit)
+                    NavigationObj.navSkip(
+                        R.id.secondFragment,
+                        bundle(),
+                        NavigationObj.navOptionsExit
+                    )
             }
         }
     }
+
     /**
      * 显示数据
      */
@@ -73,16 +86,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.articleData = data.data[0]
     }
 
-    private fun AAA(){
+    private fun AAA() {
         launchIOToMain({
-            Log.e("zxy","123")
+            Log.e("zxy", "123")
             delay(6000)
-            Log.e("zxy","456")
+            Log.e("zxy", "456")
             "123"
-        },{
-            Log.e("zxy","同步主线程")
-        },{
-            Log.e("zxy","异常")
+        }, {
+            Log.e("zxy", "同步主线程")
+        }, {
+            Log.e("zxy", "异常")
         })
     }
 }
