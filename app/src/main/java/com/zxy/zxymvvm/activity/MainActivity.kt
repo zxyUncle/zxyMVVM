@@ -1,7 +1,6 @@
 package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseActivity
@@ -9,14 +8,11 @@ import com.zxy.zxyhttp.net.bean.ArticleData
 import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.utils.extend.*
 import com.zxy.zxyhttp.utils.obj.NavigationObj
-import com.zxy.zxymvvm.R
+import com.zxy.zxymvvm.*
 import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 
 /**
  * Created by zsf on 2020/11/19 10:07
@@ -54,8 +50,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //        })
 
 //        val articleData: ArticleData = gson.fromJson("")
-
-
 
         mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
             when (id) {

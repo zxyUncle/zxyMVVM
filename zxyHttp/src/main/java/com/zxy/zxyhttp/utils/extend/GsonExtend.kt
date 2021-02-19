@@ -12,7 +12,6 @@ import com.google.gson.Gson
 val gson: Gson by lazy {
     Gson()
 }
-
 /**
  * 必须要去写他的类型，通过reified字段去推断类型
  * 用法:
