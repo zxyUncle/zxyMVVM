@@ -3,9 +3,9 @@ package com.zxy.zxyhttp.net.common
 import androidx.lifecycle.viewModelScope
 import com.zxy.zxyhttp.base.BaseViewModel
 import com.zxy.zxyhttp.net.bean.BaseBean
-import com.zxy.zxyhttp.net.ApiService
-import com.zxy.zxyhttp.net.NetConfigUtils
-import com.zxy.zxyhttp.net.NetworkService
+import com.zxy.zxyhttp.net.OkHttpApi
+import com.zxy.zxyhttp.net.OkHttpConfig
+import com.zxy.zxyhttp.net.OkHttpService
 import com.zxy.zxyhttp.utils.tools.LoadTools
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
  * * isShowLoad是否显示加载动画
  * ******************************************
  */
-fun BaseViewModel.reqeustApi(onComplete: suspend ApiService.() -> Unit,isShowLoad:Boolean = false) {
+fun BaseViewModel.reqeustApi(onComplete: suspend OkHttpApi.() -> Unit, isShowLoad:Boolean = false) {
     var baseViewModel: BaseViewModel = this
     baseViewModel.isShowLoad = isShowLoad
     baseViewModel.loadStatus(loading)
@@ -33,7 +33,7 @@ fun BaseViewModel.reqeustApi(onComplete: suspend ApiService.() -> Unit,isShowLoa
         } catch (e: Exception) {
             baseViewModel.loadStatus(loadFail)
         } finally {
-            onComplete(NetworkService.api).apply {
+            onComplete(OkHttpService.api).apply {
                 LoadTools.INSTANCE.hide() //在请求完毕之后，关闭加载中动画
             }
         }
@@ -45,9 +45,9 @@ fun BaseViewModel.reqeustApi(onComplete: suspend ApiService.() -> Unit,isShowLoa
  */
 fun BaseBean<*>.response(): BaseBean<*> {
     when (errorCode) {
-        NetConfigUtils.YN_SUCC ->//成功
+        OkHttpConfig.CODE_SUCC ->//成功
             return this
-        NetConfigUtils.YN_Fail ->//token失效
+        OkHttpConfig.CODE_FAIL ->//token失效
             // 抛出接口异常
             throw ApiException(errorCode, errorCode.toString())
         else ->

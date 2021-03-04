@@ -11,7 +11,7 @@ import retrofit2.http.GET
  * ******************************************
  */
 @JvmSuppressWildcards
-interface ApiService {
+interface OkHttpApi {
 
     /**
      * 获取公众号列表
