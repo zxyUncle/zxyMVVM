@@ -1,3 +1,5 @@
+@file:JvmName("IntentExtend")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import android.app.Activity

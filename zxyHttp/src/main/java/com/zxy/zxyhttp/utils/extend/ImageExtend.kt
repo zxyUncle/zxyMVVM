@@ -1,3 +1,5 @@
+@file:JvmName("ImageExtend")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import android.widget.ImageView

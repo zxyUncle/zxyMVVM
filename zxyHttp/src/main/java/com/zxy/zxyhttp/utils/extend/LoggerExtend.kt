@@ -1,3 +1,5 @@
+@file:JvmName("LoggerExtend")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import android.util.Log

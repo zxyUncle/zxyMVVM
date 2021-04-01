@@ -1,7 +1,10 @@
+@file:JvmName("LoadExtend")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import android.content.Context
 import com.zxy.zxyhttp.utils.tools.LoadTools
+import kotlin.reflect.KParameter
 
 /**
  * Created by zsf on 2021/1/11 15:51
@@ -11,9 +14,9 @@ import com.zxy.zxyhttp.utils.tools.LoadTools
  */
 
 fun Context.showLoad(message:String="加载中...") {
-    LoadTools.INSTANCE.show(this,message)
+    LoadTools.show(this,message)
 }
 
 fun Context.hideLoad() {
-    LoadTools.INSTANCE.hide()
+    LoadTools.hide()
 }

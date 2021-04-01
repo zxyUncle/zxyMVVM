@@ -1,3 +1,5 @@
+@file:JvmName("PermissionXExt")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import androidx.fragment.app.FragmentActivity

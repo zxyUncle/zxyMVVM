@@ -1,3 +1,5 @@
+@file:JvmName("GsonExtend")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import com.google.gson.Gson

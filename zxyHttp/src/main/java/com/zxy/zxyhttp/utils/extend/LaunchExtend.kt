@@ -1,3 +1,5 @@
+@file:JvmName("LaunchExtend")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import com.zxy.zxyhttp.R

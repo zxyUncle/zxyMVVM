@@ -1,3 +1,5 @@
+@file:JvmName("ViewExtend")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import android.content.Context

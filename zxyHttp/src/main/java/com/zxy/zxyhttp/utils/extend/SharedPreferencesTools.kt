@@ -1,11 +1,11 @@
 @file:Suppress("UNCHECKED_CAST")
-
+@file:JvmName("SharedPreferencesTools")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
-import com.google.gson.Gson
 import com.zxy.zxyhttp.net.bean.ArticleData
 import com.zxy.zxyhttp.utils.tools.ApplicationsTools
 
@@ -21,7 +21,10 @@ val SharedPreferences.BASE_ArticleData: String get() = "ArticleData"  //基类�
 
 //初始化延迟加载，config文件名字
 val sharedPreferences: SharedPreferences by lazy {
-    ApplicationsTools.context().getSharedPreferences("config", AppCompatActivity.MODE_PRIVATE)
+    ApplicationsTools.context().getSharedPreferences(
+        "config",
+        AppCompatActivity.MODE_PRIVATE or AppCompatActivity.MODE_MULTI_PROCESS
+    )
 }
 
 /**

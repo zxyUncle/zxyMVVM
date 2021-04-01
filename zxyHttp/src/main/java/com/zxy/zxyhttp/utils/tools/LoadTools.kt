@@ -9,17 +9,18 @@ import com.kaopiz.kprogresshud.KProgressHUD
  * *
  * ******************************************
  */
-class LoadTools {
-    var kProgressHUD: KProgressHUD? = null
 
-    //zxy 单例模式
-    companion object {
-        val INSTANCE: LoadTools by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
-            LoadTools()
-        }
-    }
+/**
+ * Created by zxy on 2020/8/6 16:06
+ * ******************************************
+ * * 加载中动画
+ * ******************************************
+ */
+object LoadTools {
+    private var kProgressHUD: KProgressHUD? = null
 
-    fun show(mContext: Context,message:String) {
+    @JvmStatic
+    fun show(mContext: Context, message: String) {
         if (kProgressHUD == null) {
             kProgressHUD = KProgressHUD.create(mContext)
                 .setStyle(KProgressHUD.Style.SPIN_INDETERMINATE)
@@ -27,21 +28,32 @@ class LoadTools {
                 .setCancellable(true)
                 .setAnimationSpeed(2)
                 .setDimAmount(0.1f)
-                .show()
-        } else {
-            if (!kProgressHUD!!.isShowing) {
-                hide()
+                .setCancellable {
+                    hide()
+                }
+        }
+        kProgressHUD.run {
+            if (kProgressHUD != null) {
+                if(kProgressHUD!!.isShowing){
+                    kProgressHUD = null
+                    kProgressHUD?.dismiss()
+                    show(mContext, message)
+                }else{
+                    kProgressHUD!!.show()
+                }
+            }else{
+                show(mContext, message)
             }
         }
 
     }
 
+    @JvmStatic
     fun hide() {
         if (kProgressHUD != null && kProgressHUD!!.isShowing) {
-            kProgressHUD?.dismiss()
             kProgressHUD = null
+            kProgressHUD?.dismiss()
         }
     }
-
 
 }

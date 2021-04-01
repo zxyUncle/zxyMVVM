@@ -1,3 +1,5 @@
+@file:JvmName("ClickExtend")
+@file:JvmMultifileClass
 package com.zxy.zxyhttp.utils.extend
 
 import android.view.View
