@@ -2,7 +2,9 @@ package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
 import android.util.Log
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.observe
 import com.zxy.zxyhttp.base.BaseActivity
 import com.zxy.zxyhttp.net.bean.ArticleData
 import com.zxy.zxyhttp.net.bean.BaseBean
@@ -33,9 +35,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun initView() {
         super.initView()
         AAA()
-        vmMainActivity.data.observe(this, {
+        vmMainActivity.data.observe(this) {
             showData(it)
-        })
+        }
         btnRequest.click {
             showLoad()//加载中--，会自动隐藏，放在actiivty可以对Viewmode复用
             vmMainActivity.getData()
