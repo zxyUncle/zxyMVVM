@@ -31,7 +31,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun getLayoutId() = R.layout.activity_main
 
     override fun initView() {
-        super.initView()z
+        super.initView()
         AAA()
         vmMainActivity.data.observe(this, {
             showData(it)
