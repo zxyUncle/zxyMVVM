@@ -16,7 +16,9 @@ class VMMainActivity : BaseViewModel() {
     var data = MutableLiveData<BaseBean<ArrayList<ArticleData>>>()
     fun getData() {
         reqeustApi({
-            data.value = getWXArticle()
+           getWXArticle()
+        },{
+            data.value = it
         })
     }
 }

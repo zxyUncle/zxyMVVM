@@ -6,8 +6,10 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseFragment
 import com.zxy.zxyhttp.utils.extend.click
+import com.zxy.zxyhttp.utils.extend.startNewActivity
 import com.zxy.zxyhttp.utils.obj.NavigationObj
 import com.zxy.zxymvvm.R
+import com.zxy.zxymvvm.activity.MainActivity
 import com.zxy.zxymvvm.databinding.FragmentFirstBinding
 import com.zxy.zxymvvm.fragment_viewmodel.VMFirstFragment
 import kotlinx.android.synthetic.*
@@ -35,6 +37,7 @@ class SecondFragment : BaseFragment<FragmentFirstBinding>() {
 
     override fun initListener() {
         super.initListener()
+        
         btnHome.click {
             NavigationObj.navSkipFragment(view,R.id.homeActivity)
         }

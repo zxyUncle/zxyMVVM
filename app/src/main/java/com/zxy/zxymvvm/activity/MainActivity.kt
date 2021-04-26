@@ -2,7 +2,10 @@ package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
 import android.util.Log
+import androidx.core.content.edit
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.zxy.zxyhttp.base.BaseActivity
 import com.zxy.zxyhttp.net.bean.ArticleData
 import com.zxy.zxyhttp.net.bean.BaseBean
@@ -13,6 +16,9 @@ import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collect
 
 /**
  * Created by zsf on 2020/11/19 10:07
@@ -28,17 +34,31 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         ViewModelProvider(this)[VMMainActivity::class.java]
     }
 
+    private var status = MutableStateFlow("监听MuTableStateFlow-原数据")
+
+
     override fun getLayoutId() = R.layout.activity_main
 
     override fun initView() {
-        super.initView()z
+        super.initView()
         AAA()
         vmMainActivity.data.observe(this, {
             showData(it)
         })
+        lifecycleScope.launch {
+            status.collect {
+                Log.e("zxy", it)
+            }
+        }
         btnRequest.click {
-            showLoad()//加载中--，会自动隐藏，放在actiivty可以对Viewmode复用
+            showLoad()//显示加载动画
             vmMainActivity.getData()
+        }
+        btnMutableStateFlow.click {
+//            if (status.value == "监听MuTableStateFlow-原数据")
+            status.value = "监听MuTableStateFlow-新数据"
+//            else
+//                status.value = "监听MuTableStateFlow-原数据"
         }
         //初始化跳转
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
@@ -50,6 +70,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //        })
 
 //        val articleData: ArticleData = gson.fromJson("")
+
+
+        sharedPreferences.edit {
+            putString("key", "")
+        }
+        sharedPreferences.getInt("token", 1)
 
         mRadioGroup.setOnCheckedChangeListener { radioGroup, id ->
             when (id) {
