@@ -42,14 +42,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun initView() {
         super.initView()
         AAA()
-        vmMainActivity.data.observe(this, {
+        vmMainActivity.data.observe(this) {
             showData(it)
         })
-        lifecycleScope.launch {
-            status.collect {
-                Log.e("zxy", it)
-            }
-        }
         btnRequest.click {
             showLoad()//显示加载动画
             vmMainActivity.getData()
