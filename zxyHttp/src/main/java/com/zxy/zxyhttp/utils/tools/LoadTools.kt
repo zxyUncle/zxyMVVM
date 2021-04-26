@@ -51,8 +51,8 @@ object LoadTools {
     @JvmStatic
     fun hide() {
         if (kProgressHUD != null && kProgressHUD!!.isShowing) {
-            kProgressHUD = null
             kProgressHUD?.dismiss()
+            kProgressHUD = null
         }
     }
 

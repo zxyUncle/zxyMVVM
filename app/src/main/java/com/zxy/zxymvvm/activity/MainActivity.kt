@@ -41,8 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         super.initView()
-        AAA()
-        vmMainActivity.data.observe(this) {
+        vmMainActivity.data.observe(this,{
             showData(it)
         })
         btnRequest.click {

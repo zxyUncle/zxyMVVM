@@ -17,6 +17,6 @@ fun Context.showLoad(message:String="加载中...") {
     LoadTools.show(this,message)
 }
 
-fun Context.hideLoad() {
+fun hideLoad() {
     LoadTools.hide()
 }

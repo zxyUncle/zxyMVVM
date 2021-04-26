@@ -9,6 +9,7 @@ import com.zxy.zxyhttp.net.OkHttpConfig
 import com.zxy.zxyhttp.net.OkHttpService
 import com.zxy.zxyhttp.net.bean.ArticleData
 import com.zxy.zxyhttp.utils.extend.gson
+import com.zxy.zxyhttp.utils.extend.hideLoad
 import com.zxy.zxyhttp.utils.extend.launchMain
 import com.zxy.zxyhttp.utils.tools.LoadTools
 import com.zxy.zxyhttp.utils.tools.LogcatTools
@@ -34,7 +35,7 @@ inline fun <reified T> BaseViewModel.reqeustApi(
         }
     ) {
         onRequest(OkHttpService.api).run {
-            LoadTools.hide() //在请求完毕之后，关闭加载中动画
+            hideLoad() //在请求完毕之后，关闭加载中动画
             LogcatTools.printJson(OkHttpConfig.HTTP_TAG, gson.toJson(this))
             var baseBean = this
             when (baseBean.errorCode) {
