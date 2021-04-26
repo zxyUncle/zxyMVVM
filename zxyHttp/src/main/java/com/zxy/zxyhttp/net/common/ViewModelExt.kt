@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 /**
  * Created by zsf on 2021/1/4 14:34
  * ******************************************
- * * isShowLoad是否显示加载动画
+ * * 网路加载扩展方法
  * ******************************************
  */
 inline fun <reified T> BaseViewModel.reqeustApi(
