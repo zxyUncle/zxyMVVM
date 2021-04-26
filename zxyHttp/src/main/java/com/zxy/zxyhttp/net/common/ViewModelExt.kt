@@ -30,6 +30,7 @@ inline fun <reified T> BaseViewModel.reqeustApi(
         CoroutineExceptionHandler { _, throwable ->
             run {
                 // 这里统一处理错误
+                LogcatTools.printJson(OkHttpConfig.HTTP_TAG, gson.toJson(throwable))
                 ExceptionUtil.catchException(throwable)
             }
         }
