@@ -1,21 +1,18 @@
 package com.zxy.zxyhttp.net.common
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.zxy.zxyhttp.base.BaseViewModel
-import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.net.OkHttpApi
 import com.zxy.zxyhttp.net.OkHttpConfig
 import com.zxy.zxyhttp.net.OkHttpService
-import com.zxy.zxyhttp.net.bean.ArticleData
+import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.utils.extend.gson
 import com.zxy.zxyhttp.utils.extend.hideLoad
-import com.zxy.zxyhttp.utils.extend.launchMain
-import com.zxy.zxyhttp.utils.tools.LoadTools
 import com.zxy.zxyhttp.utils.tools.LogcatTools
+import com.zxy.zxyhttp.utils.tools.eventbus.EventBusTools
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
+
 
 /**
  * Created by zsf on 2021/1/4 14:34
@@ -41,7 +38,8 @@ inline fun <reified T> BaseViewModel.reqeustApi(
             var baseBean = this
             when (baseBean.errorCode) {
                 OkHttpConfig.CODE_Token -> {
-                    //todo token失效
+                    //token失效
+                    EventBusTools.sendToken()
                 }
                 else -> {//正常返回
                     onResponse(baseBean)

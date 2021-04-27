@@ -12,7 +12,7 @@ object OkHttpConfig {
     //网路请求的配置
     var CODE_SUCC: Int = 0 //成功的Code
     var CODE_FAIL: Int = -1 //失败的Code
-    var CODE_Token: Int = 1 //失败的Code
+    var CODE_Token: Int = 10086 //失败的Code
 
     var HTTP_DEBUG_HOSTURL = "https://www.wanandroid.com/" //测试服务器地址
     var HTTP_RESEASE_HOSTURL = "https://www.wanandroid.com/" //线上服务器地址
