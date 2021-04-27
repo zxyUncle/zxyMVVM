@@ -1,6 +1,7 @@
 package com.zxy.zxyhttp.net.common
 
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.zxy.zxyhttp.base.BaseViewModel
 import com.zxy.zxyhttp.net.bean.BaseBean
@@ -31,7 +32,6 @@ inline fun <reified T> BaseViewModel.reqeustApi(
             run {
                 // 这里统一处理错误
                 LogcatTools.printJson(OkHttpConfig.HTTP_TAG, gson.toJson(throwable))
-                ExceptionUtil.catchException(throwable)
             }
         }
     ) {

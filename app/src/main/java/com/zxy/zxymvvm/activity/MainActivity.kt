@@ -48,12 +48,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             showLoad()//显示加载动画
             vmMainActivity.getData()
         }
+        lifecycleScope.launch {
+            status.collect {
+
+            }
+        }
         btnMutableStateFlow.click {
 //            if (status.value == "监听MuTableStateFlow-原数据")
             status.value = "监听MuTableStateFlow-新数据"
 //            else
 //                status.value = "监听MuTableStateFlow-原数据"
         }
+        GlobalScope.launch {
+            status.collect {
+
+            }
+        }
+
         //初始化跳转
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
         mRadioGroup.check(R.id.rbFirst)
