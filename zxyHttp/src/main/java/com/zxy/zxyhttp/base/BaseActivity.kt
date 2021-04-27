@@ -51,7 +51,8 @@ open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLo
     @Subscribe(threadMode = ThreadMode.MAIN)
     open fun onMessageEvent(event: MessageEventBean) {
         if (event.type==EventBusTools.EVENT_TOKEN_OVERDUE){
-            Toast.makeText(this,EventBusTools.EVENT_TOKEN_OVERDUE,Toast.LENGTH_SHORT).show()
+            //todo token 过期的跳转
+            Toast.makeText(this,"token 过期的处理",Toast.LENGTH_SHORT).show()
         }
     }
 
