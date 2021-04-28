@@ -3,7 +3,6 @@ package com.zxy.zxymvvm.activity
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.core.content.edit
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.zxy.zxyhttp.base.BaseActivity
@@ -12,11 +11,10 @@ import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.utils.extend.*
 import com.zxy.zxyhttp.utils.obj.NavigationObj
 import com.zxy.zxymvvm.*
-import com.zxy.zxymvvm.activity_viewmodel.VMMainActivity
+import com.zxy.zxymvvm.activity_viewmodel.VMMainAct
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
 
@@ -30,8 +28,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private lateinit var type: String
 
     //ViewMode
-    private val vmMainActivity: VMMainActivity by lazy {
-        ViewModelProvider(this)[VMMainActivity::class.java]
+    private val vmMainActivity: VMMainAct by lazy {
+        ViewModelProvider(this)[VMMainAct::class.java]
     }
 
     private var status = MutableStateFlow("监听MuTableStateFlow-原数据")

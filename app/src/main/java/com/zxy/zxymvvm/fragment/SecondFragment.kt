@@ -2,19 +2,13 @@ package com.zxy.zxymvvm.fragment
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseFragment
 import com.zxy.zxyhttp.utils.extend.click
-import com.zxy.zxyhttp.utils.extend.startNewActivity
 import com.zxy.zxyhttp.utils.obj.NavigationObj
 import com.zxy.zxymvvm.R
-import com.zxy.zxymvvm.activity.MainActivity
 import com.zxy.zxymvvm.databinding.FragmentFirstBinding
-import com.zxy.zxymvvm.fragment_viewmodel.VMFirstFragment
-import kotlinx.android.synthetic.*
-import kotlinx.android.synthetic.main.fragment_first.*
+import com.zxy.zxymvvm.fragment_viewmodel.VMFirstFrmt
 import kotlinx.android.synthetic.main.fragment_second.*
 
 /**
@@ -24,8 +18,8 @@ import kotlinx.android.synthetic.main.fragment_second.*
  * ******************************************
  */
 class SecondFragment : BaseFragment<FragmentFirstBinding>() {
-    private val vmFirstFragment: VMFirstFragment by lazy {
-        ViewModelProvider(this)[VMFirstFragment::class.java]
+    private val vmFirstFragment: VMFirstFrmt by lazy {
+        ViewModelProvider(this)[VMFirstFrmt::class.java]
     }
 
     override fun getLayoutId() = R.layout.fragment_second
