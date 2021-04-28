@@ -41,6 +41,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         super.initView()
+        var list = mutableListOf<String>()
+
         vmMainActivity.data.observe(this,{
             showData(it)
         })
