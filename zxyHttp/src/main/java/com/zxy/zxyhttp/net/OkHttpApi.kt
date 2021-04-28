@@ -16,6 +16,6 @@ interface OkHttpApi {
     /**
      * 获取公众号列表
      */
-    @GET("wxarticle/chapters/json")
+    @GET("wxarticle/chapters/json1")
     suspend fun getWXArticle(): BaseBean<ArrayList<ArticleData>>
 }
