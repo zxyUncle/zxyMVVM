@@ -29,7 +29,6 @@ inline fun <reified T> BaseViewModel.reqeustApi(
         CoroutineExceptionHandler { _, throwable ->
             run {
                 // 这里统一处理错误
-                //todo toast 系统错误
                 TToast.show("System error")
                 LogcatTools.printJson(OkHttpConfig.HTTP_TAG, gson.toJson(throwable))
             }
