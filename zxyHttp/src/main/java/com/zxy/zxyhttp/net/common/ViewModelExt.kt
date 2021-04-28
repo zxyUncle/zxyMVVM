@@ -35,14 +35,13 @@ inline fun <reified T> BaseViewModel.reqeustApi(
         onRequest(OkHttpService.api).run {
             hideLoad() //在请求完毕之后，关闭加载中动画
             LogcatTools.printJson(OkHttpConfig.HTTP_TAG, gson.toJson(this))
-            var baseBean = this
-            when (baseBean.errorCode) {
+            when (errorCode) {
                 OkHttpConfig.CODE_Token -> {
                     //token失效
                     EventBusTools.sendToken()
                 }
                 else -> {//正常返回
-                    onResponse(baseBean)
+                    onResponse(this)
                 }
             }
         }
