@@ -1,15 +1,17 @@
 package com.zxy.zxyhttp.base
 
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.zxy.zxyhttp.utils.extend.ZLogger
 import com.zxy.zxyhttp.utils.obj.ActivityStackManager
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.MainCoroutineDispatcher
-import kotlinx.coroutines.MainScope
+import com.zxy.zxyhttp.utils.tools.eventbus.EventBusTools
+import com.zxy.zxyhttp.utils.tools.eventbus.MessageEventBean
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 
 /**
@@ -23,6 +25,7 @@ open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        EventBus.getDefault().register(this)
         ActivityStackManager.addActivity(this)
         binding = DataBindingUtil.setContentView(this, getLayoutId())
         binding.lifecycleOwner=this
@@ -37,8 +40,20 @@ open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLo
 
     override fun onDestroy() {
         super.onDestroy()
+        EventBus.getDefault().unregister(this)
         ActivityStackManager.removeActivity(this)
         binding.unbind()
+    }
+
+    /**
+     * Token失效的监听
+     */
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    open fun onMessageEvent(event: MessageEventBean) {
+        if (event.type==EventBusTools.EVENT_TOKEN_OVERDUE){
+            //todo token 过期的跳转
+            Toast.makeText(this,"token 过期的处理",Toast.LENGTH_SHORT).show()
+        }
     }
 
 }

@@ -1,6 +1,5 @@
 package com.zxy.zxyhttp.net
 
-import android.os.Build
 import com.zxy.zxyhttp.BuildConfig
 import com.zxy.zxyhttp.net.common.gson.MGson
 import com.zxy.zxyhttp.utils.tools.LogcatTools
@@ -63,7 +62,7 @@ object OkHttpService {
             val request = chain.request()
                 .newBuilder()
                 .addHeader("Content-Type", "application/json")
-                .addHeader("token", "")
+                .addHeader("token", "")//todo 加入token
                 .build()
             return chain.proceed(request)
         }
@@ -83,8 +82,10 @@ object OkHttpService {
                     requestBody!!.writeTo(buffer)
                     var charset = Charset.forName("UTF-8")
                     val contentType = requestBody.contentType()
-                    charset = contentType!!.charset(Charset.forName("UTF-8"))
-                    body = buffer.readString(charset)
+                    if (contentType != null) {
+                        charset = contentType!!.charset(Charset.forName("UTF-8"))
+                        body = buffer.readString(charset)
+                    }
                     LogcatTools.printPost(OkHttpConfig.HTTP_TAG, request.url.toString(), body)
                 } else {
                     LogcatTools.printStirng(OkHttpConfig.HTTP_TAG, request.url.toString())

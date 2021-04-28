@@ -83,4 +83,7 @@ dependencies {
     api 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'// kotlin扩展（可选）
     //BaseRecyclerViewAdapterHelper
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    //eventbus
+    api 'org.greenrobot:eventbus:3.2.0'
+
 }
