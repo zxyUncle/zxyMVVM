@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources>
+  <string name="common_error_net">ネットワークの異常、ネットワーク接続を確認してください！</string>
+  <string name="common_error_net_time_out">ネットワークタイムアウト</string>
+  <string name="common_error_do_something_fail">操作異常</string>
+  <string name="common_error_request">要求エラー</string>
+  <string name="common_error_server">サーバエラー</string>
+  <string name="common_error_server_json">サーバエラー:Jsonフォーマットエラー</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="common_error_net">Network exception, please check the network connection!</string>
+	<string name="common_error_net_time_out">network timeout</string>
+	<string name="common_error_do_something_fail">Operation exception</string>
+	<string name="common_error_request">Request error</string>
+	<string name="common_error_server">Server Error</string>
+	<string name="common_error_server_json">Server error: JSON format error</string>
+</resources>

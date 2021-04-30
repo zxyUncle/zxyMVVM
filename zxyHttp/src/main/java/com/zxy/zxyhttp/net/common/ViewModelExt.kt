@@ -30,7 +30,6 @@ inline fun <reified T> BaseViewModel.reqeustApi(
             run {
                 // 这里统一处理错误
                 hideLoad() //在请求完毕之后，关闭加载中动画
-                TToast.show("System error")
                 ExceptionUtil.catchException(throwable)
                 LogcatTools.printJson(OkHttpConfig.HTTP_TAG, gson.toJson(throwable))
             }
