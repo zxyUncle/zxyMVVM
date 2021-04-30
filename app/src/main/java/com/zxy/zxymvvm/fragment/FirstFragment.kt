@@ -8,7 +8,7 @@ import com.zxy.zxyhttp.base.BaseFragment
 import com.zxy.zxyhttp.utils.extend.click
 import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.databinding.FragmentFirstBinding
-import com.zxy.zxymvvm.fragment_viewmodel.VMFirstFrmt
+import com.zxy.zxymvvm.viewmodel.VMFirstFrmt
 import kotlinx.android.synthetic.main.fragment_first.*
 
 /**

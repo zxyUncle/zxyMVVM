@@ -11,7 +11,7 @@ import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.utils.extend.*
 import com.zxy.zxyhttp.utils.obj.NavigationObj
 import com.zxy.zxymvvm.*
-import com.zxy.zxymvvm.activity_viewmodel.VMMainAct
+import com.zxy.zxymvvm.viewmodel.VMMainAct
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*

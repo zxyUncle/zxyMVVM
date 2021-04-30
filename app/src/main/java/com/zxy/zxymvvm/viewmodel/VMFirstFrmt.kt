@@ -1,4 +1,4 @@
-package com.zxy.zxymvvm.fragment_viewmodel
+package com.zxy.zxymvvm.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.zxy.zxyhttp.base.BaseViewModel
