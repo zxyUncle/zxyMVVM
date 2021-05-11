@@ -1,6 +1,5 @@
 package com.zxy.zxymvvm
 
-import com.zxy.zxyhttp.base.ServerEnum
 
 /**
  * Created by zsf on 2021/4/28 14:42
