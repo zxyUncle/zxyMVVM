@@ -3,8 +3,7 @@
 package com.zxy.zxyhttp.utils.extend
 
 import android.content.Context
-import com.zxy.zxyhttp.utils.tools.LoadTools
-import kotlin.reflect.KParameter
+import com.zxy.zxyhttp.utils.obj.LoadTools
 
 /**
  * Created by zsf on 2021/1/11 15:51
