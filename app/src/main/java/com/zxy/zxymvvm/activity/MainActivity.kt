@@ -6,6 +6,7 @@ import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.observe
 import com.zxy.zxyhttp.base.BaseActivity
 import com.zxy.zxyhttp.net.bean.ArticleData
 import com.zxy.zxyhttp.net.bean.BaseBean
