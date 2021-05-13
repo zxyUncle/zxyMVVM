@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 /**
  * Created by zsf on 2021/1/4 14:38
  * ******************************************
- * * 直接获取application的Context
+ * * 直接获取application的Context，不需要通过App.getContext
  * ******************************************
  */
 public class ApplicationsTools {

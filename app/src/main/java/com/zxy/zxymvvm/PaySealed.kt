@@ -1,8 +1,12 @@
 package com.zxy.zxymvvm
 
-import com.zxy.zxyhttp.base.ServerEnum
 
-
+/**
+ * Created by zsf on 2021/4/28 14:42
+ * ******************************************
+ * * Kotlin 密封类示例
+ * ******************************************
+ */
 //各个支付需要的参数
 data class NETS(var mid: String, var muid: String) : PaySealed()
 data class ADYEN(var signRequestInfoBean: String) : PaySealed()

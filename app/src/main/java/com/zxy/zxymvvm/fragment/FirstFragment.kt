@@ -3,14 +3,12 @@ package com.zxy.zxymvvm.fragment
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import com.zxy.zxyhttp.base.BaseFragment
 import com.zxy.zxyhttp.utils.extend.click
 import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.databinding.FragmentFirstBinding
-import com.zxy.zxymvvm.fragment_viewmodel.VMFirstFragment
-import kotlinx.android.synthetic.*
+import com.zxy.zxymvvm.viewmodel.VMFirstFrmt
 import kotlinx.android.synthetic.main.fragment_first.*
 
 /**
@@ -20,8 +18,8 @@ import kotlinx.android.synthetic.main.fragment_first.*
  * ******************************************
  */
 class FirstFragment : BaseFragment<FragmentFirstBinding>() {
-    private val vmFirstFragment: VMFirstFragment by lazy {
-        ViewModelProvider(this)[VMFirstFragment::class.java]
+    private val vmFirstFragment: VMFirstFrmt by lazy {
+        ViewModelProvider(this)[VMFirstFrmt::class.java]
     }
 
     override fun getLayoutId() = R.layout.fragment_first

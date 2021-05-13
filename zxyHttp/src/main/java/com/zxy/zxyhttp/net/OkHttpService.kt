@@ -49,9 +49,10 @@ object OkHttpService {
      * OkHttpClient客户端
      */
     private fun newClient(): OkHttpClient = OkHttpClient.Builder().apply {
-        connectTimeout(30, TimeUnit.SECONDS)// 连接时间：30s超时
+        connectTimeout(10, TimeUnit.SECONDS)// 连接时间：10s超时-个人觉得超过10的接口都是垃圾接口
         readTimeout(10, TimeUnit.SECONDS)// 读取时间：10s超时
         writeTimeout(10, TimeUnit.SECONDS)// 写入时间：10s超时
+        retryOnConnectionFailure(true)
         addNetworkInterceptor(mHeaderInterceptoer)//请求头
         addInterceptor(mLoggingInterceptor)// 日志过滤器
     }.build()

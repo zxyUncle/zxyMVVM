@@ -1,4 +1,4 @@
-package com.zxy.zxyhttp.utils.tools
+package com.zxy.zxyhttp.utils.obj
 
 import android.content.Context
 import com.kaopiz.kprogresshud.KProgressHUD

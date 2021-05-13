@@ -1,4 +1,4 @@
-package com.zxy.zxymvvm.activity_viewmodel
+package com.zxy.zxymvvm.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.zxy.zxyhttp.base.BaseViewModel
@@ -7,20 +7,18 @@ import com.zxy.zxyhttp.net.bean.BaseBean
 import com.zxy.zxyhttp.net.common.reqeustApi
 
 /**
- * Created by zsf on 2020/11/19 17:42
+ * Created by zsf on 2021/1/4 14:12
  * ******************************************
  * *
  * ******************************************
  */
-class VMMainActivity : BaseViewModel() {
+class VMFirstFrmt : BaseViewModel() {
     var data = MutableLiveData<BaseBean<ArrayList<ArticleData>>>()
     fun getData() {
         reqeustApi({
-           getWXArticle()
-        },{
+            getWXArticle()
+        }, {
             data.value = it
         })
     }
 }
-
-

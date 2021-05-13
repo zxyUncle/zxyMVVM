@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.zxy.zxydialog.TToast
 import com.zxy.zxyhttp.utils.extend.ZLogger
 import com.zxy.zxyhttp.utils.obj.ActivityStackManager
 import com.zxy.zxyhttp.utils.tools.eventbus.EventBusTools
@@ -52,7 +53,7 @@ open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLo
     open fun onMessageEvent(event: MessageEventBean) {
         if (event.type==EventBusTools.EVENT_TOKEN_OVERDUE){
             //todo token 过期的跳转
-            Toast.makeText(this,"token 过期的处理",Toast.LENGTH_SHORT).show()
+            TToast.show("token 过期的处理")
         }
     }
 
