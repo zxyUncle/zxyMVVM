@@ -34,14 +34,21 @@ open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLo
         ActivityStackManager.addActivity(this)
         binding = DataBindingUtil.setContentView(this, getLayoutId())
         binding.lifecycleOwner=this
+        initToolbar()
         initView()
         initListener()
     }
+
 
     abstract fun getLayoutId(): Int
 
     open fun initView() {}
     open fun initListener() {}
+
+
+    private fun initToolbar() {
+    }
+
 
     override fun onDestroy() {
         super.onDestroy()
@@ -60,72 +67,4 @@ open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLo
             TToast.show("token 过期的处理")
         }
     }
-    open fun setToolBar(bar: Toolbar) {
-        setToolBarTitle(bar, "")
-        setSupportActionBar(bar)
-    }
-
-    open fun setToolBar(
-        bar: Toolbar,
-        title: String?
-    ) {
-        bar.setTitleTextColor(resources.getColor(R.color.color_333333))
-        setToolBarTitle(bar, title)
-        setSupportActionBar(bar)
-    }
-
-
-    open fun setToolBarTitle(
-        bar: Toolbar,
-        title: String?
-    ) {
-        bar.setTitleTextColor(resources.getColor(R.color.color_333333))
-        bar.title = title
-    }
-
-
-    /**
-     * 设置为返回按钮
-     *
-     * @param toolbar
-     */
-    open fun setToolbarUp(
-        toolbar: Toolbar,
-        title: String?
-    ) {
-        setSupportActionBar(toolbar)
-        toolbar.title = title
-        toolbar.setTitleTextColor(resources.getColor(R.color.color_333333))
-        if (toolbar is MyToolbar) {
-            (toolbar as MyToolbar).isBackVisible = true
-            (toolbar as MyToolbar).setBackTextDrawable(resources.getDrawable(R.mipmap.back))
-            (toolbar as MyToolbar).setTitleTextSize(22f)
-            (toolbar as MyToolbar).setOnOptionItemClickListener { v ->
-                if (v.id == R.id.back) {
-                    onBackPressed()
-                } else {
-                    menuItemClick(v)
-                }
-            }
-        }
-    }
-
-
-    open fun setToolbarHome(
-        toolbar: Toolbar,
-        title: String?
-    ) {
-        setSupportActionBar(toolbar)
-        toolbar.title = title
-        //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);//显示为返回按钮
-        toolbar.setNavigationOnClickListener { onBackPressed() }
-    }
-
-
-    /**
-     * toobar 其他View点击事件
-     *
-     * @param v
-     */
-    open fun menuItemClick(v: View?) {}
 }

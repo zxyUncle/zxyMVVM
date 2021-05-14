@@ -1,69 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
     </data>
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/titleRoot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:elevation="0dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="50dp">
 
-        <View
-            android:id="@+id/baseTopbar"
+        <LinearLayout
+            android:id="@+id/llTitleBack"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NewApi">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/zxy_back" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
-            android:layout_height="25dp"
-            android:visibility="gone" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:singleLine="true"
+            android:text="标题标题标题标题标题"
+            android:textColor="#333333"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <View
-                android:id="@+id/topbar"
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
+            <LinearLayout
+                android:id="@+id/llTitleRightIv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="NewApi"
+                tools:visibility="visible">
 
-            <com.zxy.zxyhttp.base.view.MyToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/white"
-                android:minHeight="?attr/actionBarSize"
-                android:paddingLeft="0dp"
-                app:backIcon="@mipmap/back"
-                app:backMarginLeft="20dp"
-                app:backText=""
-                app:backTextAppearance="?attr/actionMenuTextAppearance"
-                app:backTextColor="@android:color/white"
-                app:contentInsetStart="0dp"
-                app:menuMarginLeft="15dp"
-                app:menuMarginRight="20dp"
-                app:title=""
-                app:titleTextAppearance="@style/Title_Appearance"
-                app:titleTextColor="@android:color/white"
-                app:title_gravity="center">
+                <ImageView
+                    android:id="@+id/ivTitleRightIv1"
+                    android:layout_width="25dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/zxy_share" />
+            </LinearLayout>
 
-                <!--<FrameLayout-->
-                <!--android:id="@+id/viewContent"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent">-->
+            <LinearLayout
+                android:id="@+id/llTitleRightTv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:gravity="center"
+                android:paddingRight="15dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="NewApi"
+                tools:visibility="visible">
 
-                <!--<include layout="@layout/view_common_bar_title"/>-->
+                <TextView
+                    android:id="@+id/tvTitleRight"
+                    android:layout_width="45dp"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:src="@drawable/zxy_share"
+                    android:text="保存"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    android:visibility="visible"
+                    tools:visibility="visible" />
+            </LinearLayout>
 
-                <!--</FrameLayout>-->
+        </LinearLayout>
 
-            </com.zxy.zxyhttp.base.view.MyToolbar>
-
-            <!--<View-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="25dp"-->
-            <!--android:background="@drawable/gradient"-->
-            <!--android:fitsSystemWindows="true" />-->
-        </FrameLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

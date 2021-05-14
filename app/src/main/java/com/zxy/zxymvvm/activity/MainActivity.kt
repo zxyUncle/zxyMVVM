@@ -6,6 +6,7 @@ import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
+import com.zxy.zxydialog.TToast
 import com.zxy.zxyhttp.base.BaseActivity
 import com.zxy.zxyhttp.net.bean.ArticleData
 import com.zxy.zxyhttp.net.bean.BaseBean
@@ -40,7 +41,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         super.initView()
-        setToolbarUp(binding.headerTitle.toolbar,"首页")
+//        setToolbarUp(binding.headerTitle.toolbar,"首页")
+        binding.includeToolbar.llTitleBack.setOnClickListener {
+            TToast.show("返回")
+        }
+
         var list = mutableListOf<String>()
 
         vmMainActivity.data.observe(this,{
