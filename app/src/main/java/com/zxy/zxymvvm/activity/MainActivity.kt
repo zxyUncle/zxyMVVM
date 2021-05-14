@@ -40,6 +40,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         super.initView()
+        setToolbarUp(binding.headerTitle.toolbar,"首页")
         var list = mutableListOf<String>()
 
         vmMainActivity.data.observe(this,{
