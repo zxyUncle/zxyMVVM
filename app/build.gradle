@@ -14,6 +14,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -48,6 +49,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
 //    implementation "androidx.multidex:multidex:2.0.1"
+    //超过的错误：fields: 65542 > 65536)
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     implementation project(path: ':zxyHttp')
 }

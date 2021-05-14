@@ -2,6 +2,7 @@ package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
 import android.util.Log
+import android.widget.Toast
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
+import java.util.concurrent.locks.Lock
 
 /**
  * Created by zsf on 2020/11/19 10:07
@@ -34,17 +36,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         ViewModelProvider(this)[VMMainAct::class.java]
     }
 
-    private var status = MutableStateFlow("监听MuTableStateFlow-原数据")
-
-
     override fun getLayoutId() = R.layout.activity_main
 
     override fun initView() {
         super.initView()
-//        setToolbarUp(binding.headerTitle.toolbar,"首页")
-        binding.includeToolbar.llTitleBack.setOnClickListener {
-            TToast.show("返回")
-        }
 
         var list = mutableListOf<String>()
 
@@ -55,34 +50,15 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             showLoad()//显示加载动画
             vmMainActivity.getData()
         }
-        lifecycleScope.launch {
-            status.collect {
+        lifecycleScope.launch {}
 
-            }
-        }
-        btnMutableStateFlow.click {
-//            if (status.value == "监听MuTableStateFlow-原数据")
-            status.value = "监听MuTableStateFlow-新数据"
-//            else
-//                status.value = "监听MuTableStateFlow-原数据"
-        }
-        GlobalScope.launch {
-            status.collect {
-
-            }
+        mToolbar.addToolbarOnClickListener {
+            TToast.show("返回")
         }
 
         //初始化跳转
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
         mRadioGroup.check(R.id.rbFirst)
-
-//        startNewActivity<Activity>(bundle {
-//            putString("name", "First")
-//            putString("age", "12")
-//        })
-
-//        val articleData: ArticleData = gson.fromJson("")
-
 
         sharedPreferences.edit {
             putString("key", "")
