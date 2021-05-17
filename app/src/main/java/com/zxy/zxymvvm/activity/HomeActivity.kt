@@ -7,6 +7,7 @@ import com.zxy.zxymvvm.R
 import com.zxy.zxymvvm.adapter.TestAdapter
 import com.zxy.zxymvvm.databinding.ActivityHomeBinding
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * Created by zsf on 2021/1/7 16:56
