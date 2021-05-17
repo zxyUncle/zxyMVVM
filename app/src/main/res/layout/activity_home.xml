@@ -14,7 +14,7 @@
         tools:context=".activity.HomeActivity">
 
         <com.zxy.zxytoolbar.ZToolbar
-            android:id="@+id/mToolbar"
+            android:id="@+id/zToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_constraintLeft_toLeftOf="parent"
