@@ -26,7 +26,15 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
         mRecyclerView.layoutManager = LinearLayoutManager(this)
         mRecyclerView.adapter = adapterText
-        adapterText.addData(0, mutableListOf("1", "2", "3", "4"))
+        adapterText.addData(
+            0,
+            mutableListOf(
+                "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b6779368b734d27b9cdfe2e16f39a3f~tplv-k3u1fbpfcp-watermark1.image",
+                "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b6779368b734d27b9cdfe2e16f39a3f~tplv-k3u1fbpfcp-watermark.image",
+                "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b6779368b734d27b9cdfe2e16f39a3f~tplv-k3u1fbpfcp-watermark2.image",
+                "https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4b6779368b734d27b9cdfe2e16f39a3f~tplv-k3u1fbpfcp-watermark.image",
+            )
+        )
 
     }
 
