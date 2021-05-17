@@ -1,15 +1,12 @@
 package com.zxy.zxyhttp.base
 
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.gyf.immersionbar.ImmersionBar
 import com.zxy.zxydialog.TToast
 import com.zxy.zxyhttp.R
-import com.zxy.zxyhttp.base.view.MyToolbar
 import com.zxy.zxyhttp.utils.extend.ZLogger
 import com.zxy.zxyhttp.utils.obj.ActivityStackManager
 import com.zxy.zxyhttp.utils.tools.eventbus.EventBusTools
@@ -28,6 +25,8 @@ import org.greenrobot.eventbus.ThreadMode
 open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLogger {
     lateinit var binding: VB
 
+    protected var stateColor:Int=R.color.titleBarColor //状态栏颜色，改变颜色就重写
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         EventBus.getDefault().register(this)
@@ -43,10 +42,17 @@ open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLo
     abstract fun getLayoutId(): Int
 
     open fun initView() {}
+
     open fun initListener() {}
 
-
     private fun initToolbar() {
+        ImmersionBar.with(this)
+            .keyboardEnable(true)
+            .navigationBarWithKitkatEnable(true)
+            .statusBarDarkFont(true)//导航栏图标
+            .fitsSystemWindows(true)//解决布局和状态栏重叠
+            .statusBarColor(stateColor)
+            .init()
     }
 
 

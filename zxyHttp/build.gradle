@@ -88,5 +88,5 @@ dependencies {
     //https://juejin.cn/post/6946458247368802341
     api 'com.github.zxyUncle:DialogDemo:1.1.13'
     //自定义Toolbar
-    api 'com.github.zxyUncle:ToolBar:1.0.3'
+    api 'com.github.zxyUncle:ToolBar:1.0.6'
 }

@@ -18,9 +18,6 @@ import com.zxy.zxymvvm.viewmodel.VMMainAct
 import com.zxy.zxymvvm.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.*
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
-import java.util.concurrent.locks.Lock
 
 /**
  * Created by zsf on 2020/11/19 10:07
@@ -38,6 +35,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getLayoutId() = R.layout.activity_main
 
+    override fun initListener() {
+        super.initListener()
+
+        //这四个点击事件可以只实现一个或者两个，支持部分实现-如HomeActivity
+        zToolbar.addOnToolbarListener(onBack = {
+            TToast.show("返回1")
+        }, onIvRight1 = {
+            TToast.show("分享1")
+        }, onIvRight2 = {
+            TToast.show("分享2")
+        }, ontvRight = {
+            TToast.show("提交")
+        })
+    }
+
+
     override fun initView() {
         super.initView()
 
@@ -51,10 +64,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             vmMainActivity.getData()
         }
         lifecycleScope.launch {}
-
-        mToolbar.addToolbarOnClickListener {
-            TToast.show("返回")
-        }
 
         //初始化跳转
         NavigationObj.navInit(this, R.id.mFrameLayout, R.navigation.nav_graph)
