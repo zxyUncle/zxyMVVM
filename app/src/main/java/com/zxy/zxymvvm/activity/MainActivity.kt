@@ -2,7 +2,6 @@ package com.zxy.zxymvvm.activity
 
 import android.annotation.SuppressLint
 import android.util.Log
-import android.widget.Toast
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -26,7 +25,6 @@ import kotlinx.coroutines.*
  * ******************************************
  */
 class MainActivity : BaseActivity<ActivityMainBinding>() {
-    private lateinit var type: String
 
     //ViewMode
     private val vmMainActivity: VMMainAct by lazy {
@@ -42,11 +40,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         zToolbar.addOnToolbarListener(onBack = {
             TToast.show("返回1")
         }, onIvRight1 = {
-            TToast.show("分享1")
+            TToast.show("分享1")  //可省略
         }, onIvRight2 = {
-            TToast.show("分享2")
+            TToast.show("分享2")  //可省略
         }, ontvRight = {
-            TToast.show("提交")
+            TToast.show("提交")   //可省略
         })
     }
 
@@ -54,9 +52,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun initView() {
         super.initView()
 
-        var list = mutableListOf<String>()
-
         vmMainActivity.data.observe(this,{
+            hideLoad() //关闭加载中动画
             showData(it)
         })
         btnRequest.click {

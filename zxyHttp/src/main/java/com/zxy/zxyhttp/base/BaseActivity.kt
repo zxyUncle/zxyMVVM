@@ -8,6 +8,7 @@ import com.gyf.immersionbar.ImmersionBar
 import com.zxy.zxydialog.TToast
 import com.zxy.zxyhttp.R
 import com.zxy.zxyhttp.utils.extend.ZLogger
+import com.zxy.zxyhttp.utils.extend.hideLoad
 import com.zxy.zxyhttp.utils.obj.ActivityStackManager
 import com.zxy.zxyhttp.utils.tools.eventbus.EventBusTools
 import com.zxy.zxyhttp.utils.tools.eventbus.MessageEventBean
@@ -69,6 +70,7 @@ open abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity(),ZLo
     @Subscribe(threadMode = ThreadMode.MAIN)
     open fun onMessageEvent(event: MessageEventBean) {
         if (event.type==EventBusTools.EVENT_TOKEN_OVERDUE){
+            hideLoad() //关闭加载中动画
             //todo token 过期的跳转
             TToast.show("token 过期的处理")
         }

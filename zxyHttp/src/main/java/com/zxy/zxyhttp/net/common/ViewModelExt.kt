@@ -36,7 +36,6 @@ inline fun <reified T> BaseViewModel.reqeustApi(
         }
     ) {
         onRequest(OkHttpService.api).run {
-            hideLoad() //在请求完毕之后，关闭加载中动画
             LogcatTools.printJson(OkHttpConfig.HTTP_TAG, gson.toJson(this))
             when (errorCode) {
                 OkHttpConfig.CODE_Token -> {
