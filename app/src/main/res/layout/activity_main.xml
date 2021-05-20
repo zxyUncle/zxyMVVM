@@ -39,8 +39,7 @@
             app:rightText="报名"
             app:rightTextColor="@color/color_333333"
             app:titleText="标题标题标题标题标题标题标题标题标题标题标题"
-            app:titleTextColor="@color/color_999999"
-            tools:layout_height="56dp" />
+            app:titleTextColor="@color/color_999999" />
 
         <Button
             android:id="@+id/btnRequest"

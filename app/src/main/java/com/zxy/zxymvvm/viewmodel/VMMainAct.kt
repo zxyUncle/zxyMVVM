@@ -15,12 +15,11 @@ import com.zxy.zxyhttp.utils.extend.hideLoad
  */
 class VMMainAct : BaseViewModel() {
     var data = MutableLiveData<BaseBean<ArrayList<ArticleData>>>()
-    fun getData() {
-        reqeustApi({
-           getWXArticle()
-        },{
-            data.value = it
-        })
+
+    fun requestData() {
+
+        reqeustApi({ getWXArticle() }, { data.value = it })
+
     }
 }
 

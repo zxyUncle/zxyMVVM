@@ -39,6 +39,7 @@ inline fun <reified T> BaseViewModel.reqeustApi(
             LogcatTools.printJson(OkHttpConfig.HTTP_TAG, gson.toJson(this))
             when (errorCode) {
                 OkHttpConfig.CODE_Token -> {
+                    hideLoad() //在请求完毕之后，关闭加载中动画
                     //token失效
                     EventBusTools.sendToken()
                 }

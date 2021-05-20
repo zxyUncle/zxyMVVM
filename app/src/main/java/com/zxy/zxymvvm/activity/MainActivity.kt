@@ -58,7 +58,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         })
         btnRequest.click {
             showLoad()//显示加载动画
-            vmMainActivity.getData()
+            vmMainActivity.requestData()
         }
         lifecycleScope.launch {}
 
