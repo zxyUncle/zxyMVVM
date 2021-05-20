@@ -37,13 +37,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         super.initListener()
 
         //这四个点击事件可以只实现一个或者两个，支持部分实现-如HomeActivity
-        zToolbar.addOnToolbarListener(onBack = {
+        zToolbar.addOnToolbarListener(OnBack = {
             TToast.show("返回1")
-        }, onIvRight1 = {
+        }, OnIvRight1 = {
             TToast.show("分享1")  //可省略
-        }, onIvRight2 = {
+        }, OnIvRight2 = {
             TToast.show("分享2")  //可省略
-        }, ontvRight = {
+        }, OntvRight = {
             TToast.show("提交")   //可省略
         })
     }

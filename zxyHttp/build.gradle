@@ -67,7 +67,8 @@ dependencies {
     //权限
     implementation 'com.permissionx.guolindev:permissionx:1.4.0'
     //glide
-    implementation 'com.github.bumptech.glide:glide:3.5.2'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     //navigation
     def nav_version = "2.3.2"
     api "androidx.navigation:navigation-fragment-ktx:$nav_version"
@@ -89,5 +90,5 @@ dependencies {
     //https://juejin.cn/post/6946458247368802341
     api 'com.github.zxyUncle:DialogDemo:1.1.13'
     //自定义Toolbar
-    api 'com.github.zxyUncle:ToolBar:1.0.6'
+    api 'com.github.zxyUncle:ToolBar:1.0.7'
 }
