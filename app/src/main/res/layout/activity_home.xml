@@ -17,18 +17,25 @@
             android:id="@+id/zToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@color/titleBarColor"
+            app:layout="@layout/titlebar"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+
             app:leftImg="@drawable/zxy_back"
             app:rightImg1="@drawable/zxy_share"
             app:rightImg2="@drawable/zxy_share"
+
             app:rightText="报名"
-            app:layout="@layout/titlebar"
             app:titleText="标题标题标题标题标题标题标题标题标题标题标题"
-            android:background="@color/titleBarColor"
+
+            app:titleSize="20sp"
+            app:rightTextSize="18sp"
+
             app:rightTextColor="@color/color_333333"
             app:titleTextColor="@color/color_999999" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/mRecyclerView"
