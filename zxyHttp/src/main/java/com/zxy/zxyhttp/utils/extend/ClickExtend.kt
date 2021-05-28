@@ -1,5 +1,6 @@
 @file:JvmName("ClickExtend")
 @file:JvmMultifileClass
+
 package com.zxy.zxyhttp.utils.extend
 
 import android.view.View
@@ -16,11 +17,11 @@ import android.view.View
 /**
  * 多个点击事件
  */
-fun Array<View>.clicks(click: (View) -> Unit) {
-    var views:Array<View> = this
+fun <T : View> Array<T>.clicks(time: Long = 300, callback: (View) -> Unit) {
+    var views: Array<T> = this
     for (v in views) {
-        v?.click {
-            click(v)
+        v?.click(time) {
+            callback(v)
         }
     }
 }
@@ -49,17 +50,10 @@ fun <T : View> T.click(time: Long = 300, block: (T) -> Unit) {
     }
 }
 
-private var <T : View> T.triggerLastTime: Long
-    get() = if (getTag(1123460103) != null) getTag(1123460103) as Long else -601
-    set(value) {
-        setTag(1123460103, value)
-    }
+private var triggerLastTime = 0L
 
-private var <T : View> T.triggerDelay: Long
-    get() = if (getTag(1123461123) != null) getTag(1123461123) as Long else 600
-    set(value) {
-        setTag(1123461123, value)
-    }
+private var triggerDelay: Long = 0L
+
 
 private fun <T : View> T.clickEnable(): Boolean {
     var flag = false
