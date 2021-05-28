@@ -42,6 +42,7 @@ fun <T : View> T.click(time: Long = 300, block: (T) -> Unit) {
                 block(it as T)
             }
         } else {
+            clickEnable()
             viewOld = it
             block(it as T)
         }
