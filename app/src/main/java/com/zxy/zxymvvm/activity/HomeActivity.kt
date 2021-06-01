@@ -43,7 +43,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
         //这四个点击事件可以只实现一个或者两个，支持部分实现
         zToolbar.addOnToolbarListener(OnBack = {
-            TToast.show("返回1")
+            onBackPressed()
         })
     }
 

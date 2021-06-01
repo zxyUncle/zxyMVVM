@@ -45,7 +45,7 @@
             app:rightTextSize="18sp"
 
             app:rightTextColor="@color/color_333333"
-            app:titleTextColor="@color/color_999999" />
+            app:titleTextColor="@color/color_FFFFFF" />
 
         <Button
             android:id="@+id/btnRequest"
