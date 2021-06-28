@@ -38,7 +38,7 @@
             app:rightImg1="@drawable/zxy_share"
             app:rightImg2="@drawable/zxy_share"
 
-            app:rightText="报名"
+            app:rightText="相册"
             app:titleText="标题标题标题标题标题标题标题标题标题标题标题"
 
             app:titleSize="20sp"

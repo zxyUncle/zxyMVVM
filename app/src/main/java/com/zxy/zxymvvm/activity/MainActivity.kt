@@ -6,6 +6,9 @@ import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
+import com.luck.picture.lib.PictureSelector
+import com.luck.picture.lib.config.PictureConfig
+import com.luck.picture.lib.config.PictureMimeType
 import com.zxy.zxydialog.TToast
 import com.zxy.zxyhttp.base.BaseActivity
 import com.zxy.zxyhttp.net.bean.ArticleData
@@ -39,20 +42,45 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         //这四个点击事件可以只实现一个或者两个，支持部分实现-如HomeActivity
         zToolbar.addOnToolbarListener(OnBack = {
             TToast.show("返回1")
-        }, OnIvRight1 = {
-            TToast.show("分享1")  //可省略
-        }, OnIvRight2 = {
-            TToast.show("分享2")  //可省略
-        }, OntvRight = {
-            TToast.show("提交")   //可省略
+        }, OnIvRight1 = { //可省略
+            TToast.show("分享1")
+        }, OnIvRight2 = { //可省略
+            TToast.show("分享2")
+        }, OntvRight = {//可省略
+            photo()
         })
+    }
+
+    private fun photo() {
+        PictureSelector.create(this@MainActivity)
+            .openGallery(PictureMimeType.ofImage())//全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
+            .selectionMode(PictureConfig.SINGLE)// 多选 or 单选 PictureConfig.MULTIPLE or PictureConfig.SINGLE
+            .isPreviewImage(false)// 是否可预览图片 true or false
+            .isCamera(false)// 是否显示拍照按钮 true or false
+            .isZoomAnim(true)// 图片列表点击 缩放效果 默认true
+            .isEnableCrop(false)// 是否裁剪 true or false
+            .imageEngine(GlideEngine.createGlideEngine())
+            .isUseCustomCamera(true)// 是否使用自定义相机
+            .isCompress(true)// 是否压缩 true or false
+            .hideBottomControls(false)// 是否显示uCrop工具栏，默认不显示 true or false
+            .isGif(false)// 是否显示gif图片 true or false
+            .freeStyleCropEnabled(false)// 裁剪框是否可拖拽 true or false
+            .circleDimmedLayer(false)// 是否圆形裁剪 true or false
+            .showCropFrame(false)// 是否显示裁剪矩形边框 圆形裁剪时建议设为false   true or false
+            .showCropGrid(false)// 是否显示裁剪矩形网格 圆形裁剪时建议设为false    true or false
+            .isOpenClickSound(false)// 是否开启点击声音 true or false
+            .minimumCompressSize(50)// 小于50kb的图片不压缩
+            .rotateEnabled(false) // 裁剪是否可旋转图片 true or false
+            .scaleEnabled(true)// 裁剪是否可放大缩小图片 true or false
+            .isDragFrame(false)// 是否可拖动裁剪框(固定)
+            .forResult(PictureConfig.CHOOSE_REQUEST);//结果回调onActivityResult code
     }
 
 
     override fun initView() {
         super.initView()
 
-        vmMainActivity.data.observe(this,{
+        vmMainActivity.data.observe(this, {
             hideLoad() //关闭加载中动画
             showData(it)
         })
@@ -100,16 +128,4 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.articleData = data.data[0]
     }
 
-    private fun AAA() {
-        launchIOToMain({
-            Log.e("zxy", "123")
-            delay(6000)
-            Log.e("zxy", "456")
-            "123"
-        }, {
-            Log.e("zxy", "同步主线程")
-        }, {
-            Log.e("zxy", "异常")
-        })
-    }
 }
